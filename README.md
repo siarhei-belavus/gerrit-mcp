@@ -31,14 +31,14 @@ A Model Context Protocol (MCP) server implementation that integrates Gerrit code
 You can install this package directly from GitHub using pip:
 
 ```bash
-pip install git+https://github.com/siarhei-belavus/gerrt_ai_review.git
+pip install git+https://github.com/siarhei-belavus/gerrit_ai_review.git
 ```
 
 Or, for development:
 
 1. Clone the repository:
 ```bash
-git clone git@github.com:siarhei-belavus/gerrt_ai_review.git
+git clone git@github.com:siarhei-belavus/gerrit_ai_review.git
 cd gerrit_ai_review
 ```
 
@@ -68,7 +68,7 @@ To integrate this MCP server with Cursor IDE:
 
 1. Install the package:
 ```bash
-pip install git+https://github.com/siarhei-belavus/gerrt_ai_review.git
+pip install git+https://github.com/siarhei-belavus/gerrit_ai_review.git
 ```
 
 2. Configure the MCP server in Cursor by creating/editing `~/.cursor/mcp.json`:

@@ -11,9 +11,9 @@ setup(
     description="A Model Context Protocol (MCP) server implementation for AI-powered Gerrit code reviews",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/siarhei-belavus/gerrt_ai_review",
+    url="https://github.com/siarhei-belavus/gerrit_ai_review",
     project_urls={
-        "Bug Tracker": "https://github.com/siarhei-belavus/gerrt_ai_review/issues",
+        "Bug Tracker": "https://github.com/siarhei-belavus/gerrit_ai_review/issues",
     },
     classifiers=[
         "Development Status :: 3 - Alpha",

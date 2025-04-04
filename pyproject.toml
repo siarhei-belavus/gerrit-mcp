@@ -32,8 +32,8 @@ dependencies = [
 requires-python = ">=3.8"
 
 [project.urls]
-Homepage = "https://github.com/siarhei-belavus/gerrt_ai_review"
-"Bug Tracker" = "https://github.com/siarhei-belavus/gerrt_ai_review/issues"
+Homepage = "https://github.com/siarhei-belavus/gerrit_ai_review"
+"Bug Tracker" = "https://github.com/siarhei-belavus/gerrit_ai_review/issues"
 
 [project.scripts]
 gerrit-ai-review = "server_direct:main"
