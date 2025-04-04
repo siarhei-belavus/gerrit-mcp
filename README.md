@@ -26,7 +26,15 @@ A Model Context Protocol (MCP) server implementation that integrates Gerrit code
   - `gerrit_create_draft_comment`: Create draft comments
   - `gerrit_set_review`: Submit reviews with labels
 
-## Setup
+## Installation
+
+You can install this package directly from GitHub using pip:
+
+```bash
+pip install git+https://github.com/siarhei-belavus/gerrt_ai_review.git
+```
+
+Or, for development:
 
 1. Clone the repository:
 ```bash
@@ -40,12 +48,14 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. Install in development mode:
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
 
-4. Create a `.env` file with your Gerrit credentials:
+## Configuration
+
+Create a `.env` file with your Gerrit credentials:
 ```
 GERRIT_URL=your_gerrit_url
 GERRIT_USERNAME=your_username
@@ -81,7 +91,12 @@ You can also use project-specific configuration by placing the `mcp.json` file i
 
 ## Usage
 
-1. Start the MCP server:
+1. If installed via pip, run:
+```bash
+gerrit-ai-review
+```
+
+Or if running from source:
 ```bash
 python src/server_direct.py
 ```
@@ -96,6 +111,34 @@ Example prompts:
 - "Review this Gerrit change for issues"
 - "Create draft comments for the problematic areas"
 - "Submit the review with appropriate labels"
+
+## Development
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Git
+- Access to a Gerrit instance
+
+### Running Tests
+
+```bash
+python test_server.py
+```
+
+### Building from Source
+
+1. Install build requirements:
+```bash
+pip install build
+```
+
+2. Build the package:
+```bash
+python -m build
+```
+
+This will create distribution files in the `dist/` directory.
 
 ## Contributing
 

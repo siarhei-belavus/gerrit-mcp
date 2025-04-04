@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gerrit_ai_review"
+version = "0.1.0"
+description = "A Model Context Protocol (MCP) server implementation for AI-powered Gerrit code reviews"
+readme = "README.md"
+authors = [
+    { name = "Siarhei Belavus", email = "siarhei_belavus@epam.com" }
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Code Review",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["gerrit", "code-review", "ai", "mcp", "cursor"]
+dependencies = [
+    "aiohttp==3.9.3",
+    "python-dotenv==1.0.1",
+    "mcp-sdk==0.1.0",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/siarhei-belavus/gerrt_ai_review"
+"Bug Tracker" = "https://github.com/siarhei-belavus/gerrt_ai_review/issues"
+
+[project.scripts]
+gerrit-ai-review = "server_direct:main"
+
+[tool.setuptools.packages.find]
+where = ["src"] 

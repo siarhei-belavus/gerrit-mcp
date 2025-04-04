@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include requirements.txt
+include gerrit_mcp.sh
+include guidelines/code_review_guidelines.md
+include SERVER_SUMMARY.md
+include gerrit_api.txt
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[cod] 
