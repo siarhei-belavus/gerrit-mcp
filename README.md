@@ -66,12 +66,30 @@ GERRIT_API_TOKEN=your_api_token
 
 To integrate this MCP server with Cursor IDE:
 
-1. Make the wrapper script executable:
+1. Install the package:
 ```bash
-chmod +x gerrit_mcp.sh
+pip install git+https://github.com/siarhei-belavus/gerrt_ai_review.git
 ```
 
 2. Configure the MCP server in Cursor by creating/editing `~/.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "gerrit-ai-review": {
+      "command": "gerrit-ai-review",
+      "env": {
+        "GERRIT_URL": "your_gerrit_url",
+        "GERRIT_USERNAME": "your_username",
+        "GERRIT_API_TOKEN": "your_api_token"
+      }
+    }
+  }
+}
+```
+
+You can also use project-specific configuration by placing the `mcp.json` file in your project's `.cursor` directory.
+
+Note: If you're running from source instead of installing via pip, use the full path to the script in your configuration:
 ```json
 {
   "mcpServers": {
@@ -86,8 +104,6 @@ chmod +x gerrit_mcp.sh
   }
 }
 ```
-
-You can also use project-specific configuration by placing the `mcp.json` file in your project's `.cursor` directory.
 
 ## Usage
 
