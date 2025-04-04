@@ -1,0 +1,35 @@
+You are a senior Python developer with extensive expertise in software architecture, FastMCP library implementation, and Gerrit API integration. Develop a production-grade MCP server that help LLM performing intelligent code reviews on Gerrit commits using Cursor AI.
+
+Your task is to implement a comprehensive MCP server that integrates with Gerrit's API to:
+1. Fetch commit metadata and identify changed files
+2. Retrieve file-specific diffs
+3. Load complete content of modified files (if needed)
+4. Store and manage file-specific review comments
+5. Store global review comments not associated with specific files
+
+The implementation must:
+- Utilize asynchronous processing patterns for optimal performance
+- Implement proper connection pooling for Gerrit API interactions
+- Follow resource management best practices with appropriate cleanup mechanisms
+- Include comprehensive error handling and logging
+- Be designed with scalability in mind to handle large repositories
+
+Begin by conducting a thorough analysis of the existing codebase to identify:
+- Components already implemented
+- Current Gerrit API interaction patterns
+- Existing authentication mechanisms
+
+Develop a detailed implementation plan that includes:
+- Architecture diagram showing component interactions
+- API endpoint specifications
+- Data flow descriptions
+- Performance optimization strategies
+- Testing methodology
+
+Then proceed with implementation, ensuring production-quality code with appropriate documentation, tests, and monitoring hooks.
+
+Context:
+username: siarhei_belavus
+token: lb4gSwfKIy5DJYNhJhd5hVcQ18wOQN6MHK/pTtYQ/Q
+base url: @https://gerrit.delivery.epam.com 
+commit url: @https://gerrit.delivery.epam.com/c/planner-backend/+/50996 

@@ -1,0 +1,36 @@
+Code Review Guidelines
+
+1. Code Quality
+   - Check for clean, readable, and maintainable code
+   - Ensure proper naming conventions are followed
+   - Look for code duplication and opportunities for reuse
+   - Verify proper error handling and logging
+
+2. Performance
+   - Review database queries and data access patterns
+   - Check for potential memory leaks
+   - Look for inefficient algorithms or data structures
+   - Verify proper use of caching where appropriate
+
+3. Security
+   - Check for proper input validation
+   - Verify authentication and authorization
+   - Look for potential security vulnerabilities
+   - Ensure sensitive data is handled securely
+
+4. Testing
+   - Verify test coverage for new code
+   - Check test quality and edge cases
+   - Ensure tests are meaningful and maintainable
+
+5. Documentation
+   - Check for clear and accurate comments
+   - Verify API documentation is complete
+   - Look for clear commit messages and descriptions
+   - Ensure code changes are well-documented
+
+6. Best Practices
+   - Follow SOLID principles
+   - Use appropriate design patterns
+   - Maintain backward compatibility
+   - Consider scalability and maintainability 
