@@ -1,21 +1,36 @@
-# Gerrit AI Review
+# Gerrit AI Review MCP
 
-An AI-powered code review tool that integrates with Gerrit Code Review system. This tool automatically analyzes code changes and provides intelligent feedback through Gerrit's comment system.
+A Model Context Protocol (MCP) server implementation that integrates Gerrit code reviews with AI-powered IDEs like Cursor. This server enables automated code reviews by connecting your Gerrit instance with AI capabilities through the MCP protocol.
 
 ## Features
 
-- Automatic code review using AI
-- Integration with Gerrit REST API
-- Support for line-specific and global comments
-- Configurable review criteria
-- Draft comments management
-- Code-Review label application (-1 or -2)
+- **MCP Server Implementation:**
+  - Built using the MCP Python SDK
+  - Exposes Gerrit functionality through MCP tools
+  - Seamless integration with AI-powered IDEs
+
+- **Gerrit Integration:**
+  - Fetch commit information and change details
+  - Create and manage draft comments
+  - Support for line-specific and global comments
+  - Apply Code-Review labels (-1 or -2)
+  - Authenticated Gerrit REST API interaction
+
+- **Available Tools:**
+  - `gerrit_get_commit_info`: Fetch basic commit information
+  - `gerrit_get_change_detail`: Retrieve detailed change information
+  - `gerrit_get_commit_message`: Get commit messages
+  - `gerrit_get_related_changes`: Find related changes
+  - `gerrit_get_file_list`: List modified files
+  - `gerrit_get_file_diff`: Get file-specific diffs
+  - `gerrit_create_draft_comment`: Create draft comments
+  - `gerrit_set_review`: Submit reviews with labels
 
 ## Setup
 
 1. Clone the repository:
 ```bash
-git clone [your-repo-url]
+git clone git@github.com:siarhei-belavus/gerrt_ai_review.git
 cd gerrit_ai_review
 ```
 
@@ -37,19 +52,50 @@ GERRIT_USERNAME=your_username
 GERRIT_API_TOKEN=your_api_token
 ```
 
+## Cursor IDE Integration
+
+To integrate this MCP server with Cursor IDE:
+
+1. Make the wrapper script executable:
+```bash
+chmod +x gerrit_mcp.sh
+```
+
+2. Configure the MCP server in Cursor by creating/editing `~/.cursor/mcp.json`:
+```json
+{
+  "mcpServers": {
+    "gerrit-ai-review": {
+      "command": "/absolute/path/to/gerrit_ai_review/gerrit_mcp.sh",
+      "env": {
+        "GERRIT_URL": "your_gerrit_url",
+        "GERRIT_USERNAME": "your_username",
+        "GERRIT_API_TOKEN": "your_api_token"
+      }
+    }
+  }
+}
+```
+
+You can also use project-specific configuration by placing the `mcp.json` file in your project's `.cursor` directory.
+
 ## Usage
 
-Run the server:
+1. Start the MCP server:
 ```bash
 python src/server_direct.py
 ```
 
-The server provides several tools for interacting with Gerrit:
-- Get commit information
-- Fetch change details
-- Create draft comments
-- Submit reviews with labels
-- And more...
+2. In Cursor IDE:
+   - Open a conversation about a Gerrit review
+   - Paste a Gerrit change URL
+   - Ask Cursor to review the changes using the available tools
+   - Approve comments to be posted back to Gerrit
+
+Example prompts:
+- "Review this Gerrit change for issues"
+- "Create draft comments for the problematic areas"
+- "Submit the review with appropriate labels"
 
 ## Contributing
 
