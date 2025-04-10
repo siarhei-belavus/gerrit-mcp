@@ -1,6 +1,6 @@
 # Gerrit AI Review MCP
 
-[![Build and Test](https://github.com/siarhei-belavus/gerrit_mcp/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/siarhei-belavus/gerrit_mcp/actions/workflows/build_and_test.yml)
+[![Build and Test](https://github.com/siarhei-belavus/gerrit-mcp/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/siarhei-belavus/gerrit-mcp/actions/workflows/build_and_test.yml)
 
 A Model Context Protocol (MCP) server implementation that integrates Gerrit code reviews with AI-powered IDEs like Cursor. This server enables automated code reviews by connecting your Gerrit instance with AI capabilities through the MCP protocol.
 
@@ -33,15 +33,15 @@ A Model Context Protocol (MCP) server implementation that integrates Gerrit code
 You can install this package directly from GitHub using pip:
 
 ```bash
-pip install git+https://github.com/siarhei-belavus/gerrit_ai_review.git
+pip install git+https://github.com/siarhei-belavus/gerrit-mcp.git
 ```
 
 Or, for development:
 
 1. Clone the repository:
 ```bash
-git clone git@github.com:siarhei-belavus/gerrit_ai_review.git
-cd gerrit_ai_review
+git clone git@github.com:siarhei-belavus/gerrit-mcp.git
+cd gerrit-mcp
 ```
 
 2. Create and activate a virtual environment:
@@ -90,7 +90,7 @@ src/
 │   ├── api.py          # API request functions
 │   ├── auth.py         # Authentication utilities
 │   └── models.py       # Data models
-├── mmcp/               # MCP server implementation
+├── mcp/                # MCP server implementation
 │   ├── server.py       # Server setup
 │   └── tools/          # MCP tool implementations
 │       ├── commit_tools.py    # Commit-related tools
@@ -107,15 +107,15 @@ To integrate this MCP server with Cursor IDE:
 
 1. Install the package:
 ```bash
-pip install git+https://github.com/siarhei-belavus/gerrit_ai_review.git
+pip install git+https://github.com/siarhei-belavus/gerrit-mcp.git
 ```
 
 2. Configure the MCP server in Cursor by creating/editing `~/.cursor/mcp.json`:
 ```json
 {
   "mcpServers": {
-    "gerrit-ai-review": {
-      "command": "gerrit-ai-review",
+    "gerrit-mcp": {
+      "command": "gerrit-mcp",
       "workingDirectory": "path/to/working/directory",
       "env": {
         "GERRIT_URL": "your_gerrit_url",
@@ -134,8 +134,8 @@ If you prefer to use command-line arguments instead of environment variables:
 ```json
 {
   "mcpServers": {
-    "gerrit-ai-review": {
-      "command": "gerrit-ai-review --gerrit_url your_gerrit_url --username your_username --api_token your_api_token",
+    "gerrit-mcp": {
+      "command": "gerrit-mcp --gerrit_url your_gerrit_url --username your_username --api_token your_api_token",
       "workingDirectory": "path/to/working/directory",
       "env": {}
     }
@@ -154,8 +154,8 @@ For development from source, use the full path to the script:
 ```json
 {
   "mcpServers": {
-    "gerrit-ai-review": {
-      "command": "/absolute/path/to/gerrit_ai_review/gerrit_mcp.sh",
+    "gerrit-mcp": {
+      "command": "/absolute/path/to/gerrit-mcp/gerrit_mcp.sh",
       "workingDirectory": "path/to/working/directory",
       "env": {}
     }
@@ -167,7 +167,7 @@ For development from source, use the full path to the script:
 
 1. If installed via pip, run:
 ```bash
-gerrit-ai-review
+gerrit-mcp
 ```
 
 Or if running from source:
@@ -187,7 +187,7 @@ Command line options:
 --username USERNAME   Gerrit username
 --api_token TOKEN     Gerrit API token or password
 
-For complete usage information, run: gerrit-ai-review --help
+For complete usage information, run: gerrit-mcp --help
 ```
 
 2. In Cursor IDE:
