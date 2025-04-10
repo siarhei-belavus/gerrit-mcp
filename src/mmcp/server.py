@@ -24,6 +24,16 @@ from mmcp.tools import (
     create_draft_comment_tool,
     set_review_tool
 )
+from gerrit.api import (
+    get_commit_info,
+    get_change_detail,
+    get_commit_message,
+    get_related_changes,
+    get_file_list,
+    get_file_diff,
+    create_draft_comment,
+    set_review
+)
 
 import argparse
 
@@ -80,7 +90,7 @@ async def gerrit_lifespan(server: FastMCP) -> AsyncIterator[Dict[str, aiohttp.Cl
         # Create an authenticated session
         logger.info(f"Creating authenticated Gerrit session... (server: {server_id})")
         try:
-            session = create_auth_session()
+            session = create_auth_session(GERRIT_URL, GERRIT_USERNAME, GERRIT_API_TOKEN)
             logger.info(f"Session created successfully (server: {server_id})")
         except Exception as e:
             logger.error(f"Failed to create session: {str(e)}")
@@ -164,7 +174,7 @@ def get_gerrit_config() -> Dict[str, Any]:
 # === Define MCP Tools ===
 
 @app.tool("gerrit_get_commit_info")
-async def gerrit_get_commit_info(change_id: str, ctx: Context) -> Dict[str, Any]:
+async def gerrit_get_commit_info_tool(change_id: str, ctx: Context) -> Dict[str, Any]:
     """
     Fetch commit information for the current revision of a change.
     
@@ -176,11 +186,11 @@ async def gerrit_get_commit_info(change_id: str, ctx: Context) -> Dict[str, Any]
         Dict[str, Any]: A dictionary containing commit information.
     """
     ctx.info(f"Fetching commit info for change: {change_id}")
-    return await get_commit_info_tool(change_id, ctx)
+    return await get_commit_info(change_id, GERRIT_URL, ctx.state["gerrit_session"])
 
 
 @app.tool("gerrit_get_change_detail")
-async def gerrit_get_change_detail(change_id: str, ctx: Context) -> Dict[str, Any]:
+async def gerrit_get_change_detail_tool(change_id: str, ctx: Context) -> Dict[str, Any]:
     """
     Get detailed information about a change.
     
@@ -192,11 +202,11 @@ async def gerrit_get_change_detail(change_id: str, ctx: Context) -> Dict[str, An
         Dict[str, Any]: A dictionary containing change details.
     """
     ctx.info(f"Fetching change details for: {change_id}")
-    return await get_change_detail_tool(change_id, ctx)
+    return await get_change_detail(change_id, GERRIT_URL, ctx.state["gerrit_session"])
 
 
 @app.tool("gerrit_get_commit_message")
-async def gerrit_get_commit_message(change_id: str, ctx: Context) -> Dict[str, Any]:
+async def gerrit_get_commit_message_tool(change_id: str, ctx: Context) -> Dict[str, Any]:
     """
     Get the commit message for the current revision of a change.
     
@@ -208,11 +218,11 @@ async def gerrit_get_commit_message(change_id: str, ctx: Context) -> Dict[str, A
         Dict[str, Any]: A dictionary containing the commit message.
     """
     ctx.info(f"Fetching commit message for: {change_id}")
-    return await get_commit_message_tool(change_id, ctx)
+    return await get_commit_message(change_id, GERRIT_URL, ctx.state["gerrit_session"])
 
 
 @app.tool("gerrit_get_related_changes")
-async def gerrit_get_related_changes(change_id: str, ctx: Context) -> Dict[str, Any]:
+async def gerrit_get_related_changes_tool(change_id: str, ctx: Context) -> Dict[str, Any]:
     """
     Get related changes for the current revision of a change.
     
@@ -224,11 +234,11 @@ async def gerrit_get_related_changes(change_id: str, ctx: Context) -> Dict[str, 
         Dict[str, Any]: A dictionary containing related changes.
     """
     ctx.info(f"Fetching related changes for: {change_id}")
-    return await get_related_changes_tool(change_id, ctx)
+    return await get_related_changes(change_id, GERRIT_URL, ctx.state["gerrit_session"])
 
 
 @app.tool("gerrit_get_file_list")
-async def gerrit_get_file_list(change_id: str, ctx: Context) -> Dict[str, Any]:
+async def gerrit_get_file_list_tool(change_id: str, ctx: Context) -> Dict[str, Any]:
     """
     Get a detailed list of files for the current revision of a change.
     
@@ -240,11 +250,11 @@ async def gerrit_get_file_list(change_id: str, ctx: Context) -> Dict[str, Any]:
         Dict[str, Any]: A dictionary containing the file list.
     """
     ctx.info(f"Fetching file list for: {change_id}")
-    return await get_file_list_tool(change_id, ctx)
+    return await get_file_list(change_id, GERRIT_URL, ctx.state["gerrit_session"])
 
 
 @app.tool("gerrit_get_file_diff")
-async def gerrit_get_file_diff(change_id: str, file_path: str, ctx: Context) -> Dict[str, Any]:
+async def gerrit_get_file_diff_tool(change_id: str, file_path: str, ctx: Context) -> Dict[str, Any]:
     """
     Get the diff for a specific file in the current revision of a change.
     
@@ -257,11 +267,11 @@ async def gerrit_get_file_diff(change_id: str, file_path: str, ctx: Context) -> 
         Dict[str, Any]: A dictionary containing the file diff.
     """
     ctx.info(f"Fetching diff for {file_path} in change: {change_id}")
-    return await get_file_diff_tool(change_id, file_path, ctx)
+    return await get_file_diff(change_id, file_path, GERRIT_URL, ctx.state["gerrit_session"])
 
 
 @app.tool("gerrit_create_draft_comment")
-async def gerrit_create_draft_comment(
+async def gerrit_create_draft_comment_tool(
     change_id: str, 
     file_path: str, 
     message: str, 
@@ -286,7 +296,7 @@ async def gerrit_create_draft_comment(
     ctx.info(f"Creating draft comment on {file_path}:{line_desc} for change: {change_id}")
     
     try:
-        result = await create_draft_comment_tool(change_id, file_path, message, line, ctx)
+        result = await create_draft_comment(change_id, file_path, message, GERRIT_URL, ctx.state["gerrit_session"], line)
         await ctx.report_progress(1, 1)
         return result
     except Exception as e:
@@ -295,7 +305,7 @@ async def gerrit_create_draft_comment(
 
 
 @app.tool("gerrit_set_review")
-async def gerrit_set_review(
+async def gerrit_set_review_tool(
     change_id: str,
     code_review_label: int,
     ctx: Context,
@@ -319,7 +329,7 @@ async def gerrit_set_review(
     """
     label_desc = "critical issues" if code_review_label == -2 else "non-critical issues"
     ctx.info(f"Submitting review ({label_desc}) for change: {change_id}")
-    return await set_review_tool(change_id, code_review_label, ctx, message)
+    return await set_review(change_id, code_review_label, GERRIT_URL, ctx.state["gerrit_session"], message)
 
 
 # === Define MCP Prompts ===

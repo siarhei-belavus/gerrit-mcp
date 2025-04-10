@@ -12,22 +12,25 @@ import asyncio
 logger = logging.getLogger(__name__)
 
 
-def get_auth_credentials() -> Tuple[str, str, str]:
+def get_auth_credentials(gerrit_url=None, username=None, api_token=None):
     """
-    Get authentication credentials from environment variables.
-    
+    Retrieve Gerrit authentication credentials.
+
+    Args:
+        gerrit_url (str, optional): The Gerrit URL
+        username (str, optional): The Gerrit username
+        api_token (str, optional): The Gerrit API token
+
     Returns:
         Tuple[str, str, str]: A tuple containing (gerrit_url, username, api_token)
-        
+
     Raises:
-        ValueError: If any of the required environment variables are missing
+        ValueError: If any of the credentials are missing
     """
-    # Load from .env file first, in case not already loaded
-    load_dotenv()
-    
-    gerrit_url = os.environ.get("GERRIT_URL")
-    username = os.environ.get("GERRIT_USERNAME")
-    api_token = os.environ.get("GERRIT_API_TOKEN")
+    # Use provided parameters or fall back to environment variables
+    gerrit_url = gerrit_url or os.environ.get("GERRIT_URL")
+    username = username or os.environ.get("GERRIT_USERNAME")
+    api_token = api_token or os.environ.get("GERRIT_API_TOKEN")
 
     if not all([gerrit_url, username, api_token]):
         missing = []
@@ -37,29 +40,32 @@ def get_auth_credentials() -> Tuple[str, str, str]:
             missing.append("GERRIT_USERNAME")
         if not api_token:
             missing.append("GERRIT_API_TOKEN")
-        error_msg = f"Missing required environment variables: {', '.join(missing)}"
-        logger.error(error_msg)
-        raise ValueError(error_msg)
-    
-    # Normalize URL to ensure it doesn't end with a trailing slash
+        raise ValueError(f"Missing required credentials: {', '.join(missing)}")
+
     if gerrit_url.endswith('/'):
         gerrit_url = gerrit_url[:-1]
-    
+
     return gerrit_url, username, api_token
 
 
-def create_auth_session() -> aiohttp.ClientSession:
+def create_auth_session(gerrit_url, username, api_token):
     """
     Create an authenticated aiohttp session for Gerrit API requests.
     
+    Args:
+        gerrit_url (str): The Gerrit URL
+        username (str): The Gerrit username
+        api_token (str): The Gerrit API token
+        
     Returns:
         aiohttp.ClientSession: An authenticated session
         
     Raises:
         ValueError: If authentication credentials are missing
     """
-    gerrit_url, username, api_token = get_auth_credentials()
-    
+    if not all([gerrit_url, username, api_token]):
+        raise ValueError("GERRIT_URL, GERRIT_USERNAME, and GERRIT_API_TOKEN must be provided.")
+
     logger.info(f"Creating authenticated session for {gerrit_url} with user: {username}")
     
     # Configure timeouts to prevent hanging
