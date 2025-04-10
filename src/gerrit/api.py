@@ -89,7 +89,8 @@ async def make_gerrit_request(
     session: aiohttp.ClientSession,
     method: str = "GET", 
     data: Optional[Dict[str, Any]] = None,
-    timeout: int = 30
+    timeout: int = 30,
+    base_gerrit_url: str = None
 ) -> Dict[str, Any]:
     """
     Make a request to the Gerrit API with proper error handling.
@@ -100,6 +101,7 @@ async def make_gerrit_request(
         method (str, optional): The HTTP method to use. Defaults to "GET".
         data (Optional[Dict[str, Any]], optional): The data to send with the request. Defaults to None.
         timeout (int, optional): Request timeout in seconds. Defaults to 30.
+        base_gerrit_url (str, optional): The base Gerrit URL for path processing.
         
     Returns:
         Dict[str, Any]: The parsed response from the Gerrit API
@@ -109,15 +111,18 @@ async def make_gerrit_request(
         GerritAPIError: If any other error occurs during the request
     """
     try:
-        # URL processing logic remains, but assumes `url` might contain the base path
-        # It now needs the base gerrit_url to correctly encode change IDs relative to the base
-        # Let's fetch it here just for the encoding logic, assuming it's consistent
-        # A better approach might be to pass base_gerrit_url explicitly if needed for encoding.
-        base_gerrit_url, _, _ = get_auth_credentials() # Get base URL just for path manipulation
+        # If base_gerrit_url is not provided, try to get it from credentials
+        if base_gerrit_url is None:
+            try:
+                base_gerrit_url, _, _ = get_auth_credentials()
+            except ValueError as e:
+                logger.error(f"Error getting base Gerrit URL: {str(e)}")
+                # Continue with the original URL if we can't get base_gerrit_url
+                base_gerrit_url = None
 
         processed_url = url  # Start with the original URL passed in
         
-        if '/changes/' in url:
+        if base_gerrit_url and '/changes/' in url:
             logger.debug(f"Processing URL containing /changes/: {url}")
             
             # Extract the change ID part relative to the base Gerrit URL
@@ -156,9 +161,9 @@ async def make_gerrit_request(
                     logger.warning(f"'changes' segment not found in URL path: {url}")
             else:
                 logger.warning(f"URL {url} does not start with expected base Gerrit URL {base_gerrit_url}")
-        else:
+        elif base_gerrit_url:
             # Ensure /a/ prefix for other authenticated endpoints if needed
-            if base_gerrit_url and url.startswith(base_gerrit_url) and '/a/' not in url:
+            if url.startswith(base_gerrit_url) and '/a/' not in url:
                  # Avoid adding /a/ if it's something like /login/
                  if not url.endswith("/login/") and not url.endswith("/config/server/version") :
                     relative_path = url[len(base_gerrit_url):].lstrip('/')
@@ -260,57 +265,51 @@ def extract_change_id(commit_url: str) -> Optional[str]:
 @handle_gerrit_errors
 async def get_commit_info(
     change_id: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/commit" # Construct full URL
-    return await make_gerrit_request(url, session=session)
+    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/commit"
+    return await make_gerrit_request(url, session=session, base_gerrit_url=gerrit_url)
 
 
 @handle_gerrit_errors
 async def get_change_detail(
     change_id: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    url = f"{gerrit_url}/a/changes/{change_id}/detail" # Construct full URL
-    return await make_gerrit_request(url, session=session)
+    url = f"{gerrit_url}/a/changes/{change_id}/detail"
+    return await make_gerrit_request(url, session=session, base_gerrit_url=gerrit_url)
 
 
 @handle_gerrit_errors
 async def get_commit_message(
     change_id: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    # Note: This endpoint typically doesn't require /a/ prefix for public changes
-    url = f"{gerrit_url}/changes/{change_id}/revisions/current/commit" # Construct full URL
-    return await make_gerrit_request(url, session=session)
+    url = f"{gerrit_url}/changes/{change_id}/revisions/current/commit"
+    return await make_gerrit_request(url, session=session, base_gerrit_url=gerrit_url)
 
 
 @handle_gerrit_errors
 async def get_related_changes(
     change_id: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/related" # Construct full URL
-    return await make_gerrit_request(url, session=session)
+    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/related"
+    return await make_gerrit_request(url, session=session, base_gerrit_url=gerrit_url)
 
 
 @handle_gerrit_errors
 async def get_file_list(
     change_id: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/files" # Construct full URL
-    result = await make_gerrit_request(url, session=session)
+    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/files"
+    result = await make_gerrit_request(url, session=session, base_gerrit_url=gerrit_url)
     
     # Filter out the commit message pseudo-file
     if isinstance(result, dict) and '/COMMIT_MSG' in result:
@@ -326,16 +325,14 @@ async def get_file_list(
 async def get_file_diff(
     change_id: str,
     file_path: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    
     # Encode file path for URL
     encoded_file_path = quote(file_path, safe='')
-    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/files/{encoded_file_path}/diff" # Construct full URL
+    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/files/{encoded_file_path}/diff"
     
-    raw_diff = await make_gerrit_request(url, session=session)
+    raw_diff = await make_gerrit_request(url, session=session, base_gerrit_url=gerrit_url)
     
     # Check if this is a binary file
     if raw_diff.get('binary', False):
@@ -395,29 +392,28 @@ async def create_draft_comment(
     change_id: str,
     file_path: str,
     message: str,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession,
-    line: int # Use -1 for file-level comment
+    line: int
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    
     # Prepare the comment data (CommentInput entity format)
     comment_data = {
         "path": file_path,
         "message": message,
-        "unresolved": True # Changed from string "true"
+        "unresolved": True
     }
     
     if line != -1:
         comment_data["line"] = line
     
-    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/drafts" # Construct full URL
+    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/drafts"
 
     return await make_gerrit_request(
         url,
         session=session,
         method="PUT",
-        data=comment_data
+        data=comment_data,
+        base_gerrit_url=gerrit_url
     )
 
 
@@ -425,12 +421,10 @@ async def create_draft_comment(
 async def set_review(
     change_id: str,
     code_review_label: int,
-    gerrit_url: str, # Added parameter
+    gerrit_url: str,
     session: aiohttp.ClientSession,
     message: Optional[str] = None
 ) -> Dict[str, Any]:
-    # Removed: gerrit_url, username, api_token = get_auth_credentials(gerrit_url, username, api_token)
-    
     # Validate the code review label
     if code_review_label not in [-1, -2]:
         error_msg = f"Invalid Code-Review label value: {code_review_label}. Must be -1 or -2."
@@ -448,11 +442,12 @@ async def set_review(
     if message:
         review_data["message"] = message
     
-    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/review" # Construct full URL
+    url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/review"
     
     return await make_gerrit_request(
         url,
         session=session,
         method="POST",
-        data=review_data
+        data=review_data,
+        base_gerrit_url=gerrit_url
     ) 

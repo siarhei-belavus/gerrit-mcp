@@ -99,7 +99,7 @@ async def gerrit_lifespan(server: FastMCP) -> AsyncIterator[Dict[str, aiohttp.Cl
         # Validate authentication with timeout
         logger.info(f"Validating Gerrit authentication... (server: {server_id})")
         try:
-            auth_valid = await asyncio.wait_for(validate_auth(session), timeout=AUTH_TIMEOUT)
+            auth_valid = await asyncio.wait_for(validate_auth(session, GERRIT_URL, GERRIT_USERNAME), timeout=AUTH_TIMEOUT)
             if not auth_valid:
                 logger.error(f"Authentication validation failed (server: {server_id})")
                 raise ValueError("Authentication validation failed")
@@ -186,7 +186,7 @@ async def gerrit_get_commit_info_tool(change_id: str, ctx: Context) -> Dict[str,
         Dict[str, Any]: A dictionary containing commit information.
     """
     ctx.info(f"Fetching commit info for change: {change_id}")
-    return await get_commit_info(change_id, GERRIT_URL, ctx.state["gerrit_session"])
+    return await get_commit_info(change_id, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"])
 
 
 @app.tool("gerrit_get_change_detail")
@@ -202,7 +202,7 @@ async def gerrit_get_change_detail_tool(change_id: str, ctx: Context) -> Dict[st
         Dict[str, Any]: A dictionary containing change details.
     """
     ctx.info(f"Fetching change details for: {change_id}")
-    return await get_change_detail(change_id, GERRIT_URL, ctx.state["gerrit_session"])
+    return await get_change_detail(change_id, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"])
 
 
 @app.tool("gerrit_get_commit_message")
@@ -218,7 +218,7 @@ async def gerrit_get_commit_message_tool(change_id: str, ctx: Context) -> Dict[s
         Dict[str, Any]: A dictionary containing the commit message.
     """
     ctx.info(f"Fetching commit message for: {change_id}")
-    return await get_commit_message(change_id, GERRIT_URL, ctx.state["gerrit_session"])
+    return await get_commit_message(change_id, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"])
 
 
 @app.tool("gerrit_get_related_changes")
@@ -234,7 +234,7 @@ async def gerrit_get_related_changes_tool(change_id: str, ctx: Context) -> Dict[
         Dict[str, Any]: A dictionary containing related changes.
     """
     ctx.info(f"Fetching related changes for: {change_id}")
-    return await get_related_changes(change_id, GERRIT_URL, ctx.state["gerrit_session"])
+    return await get_related_changes(change_id, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"])
 
 
 @app.tool("gerrit_get_file_list")
@@ -250,7 +250,7 @@ async def gerrit_get_file_list_tool(change_id: str, ctx: Context) -> Dict[str, A
         Dict[str, Any]: A dictionary containing the file list.
     """
     ctx.info(f"Fetching file list for: {change_id}")
-    return await get_file_list(change_id, GERRIT_URL, ctx.state["gerrit_session"])
+    return await get_file_list(change_id, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"])
 
 
 @app.tool("gerrit_get_file_diff")
@@ -266,8 +266,8 @@ async def gerrit_get_file_diff_tool(change_id: str, file_path: str, ctx: Context
     Returns:
         Dict[str, Any]: A dictionary containing the file diff.
     """
-    ctx.info(f"Fetching diff for {file_path} in change: {change_id}")
-    return await get_file_diff(change_id, file_path, GERRIT_URL, ctx.state["gerrit_session"])
+    ctx.info(f"Fetching file diff for: {change_id} {file_path}")
+    return await get_file_diff(change_id, file_path, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"])
 
 
 @app.tool("gerrit_create_draft_comment")
@@ -279,28 +279,26 @@ async def gerrit_create_draft_comment_tool(
     ctx: Context
 ) -> Dict[str, Any]:
     """
-    Create a new draft comment on a specific line in a file for the current revision.
-    If line is -1, creates a global comment on the file without line number.
+    Create a draft comment on a change.
     
     Args:
-        change_id (str): The ID of the change to create a comment for.
+        change_id (str): The ID of the change to create the comment on.
         file_path (str): The path of the file to comment on.
-        message (str): The content of the comment.
-        line (int): The line number to comment on (-1 for file-level comment).
+        message (str): The comment message.
+        line (int): The line number to comment on, or -1 for a file-level comment.
         ctx (Context): The MCP context object.
         
     Returns:
         Dict[str, Any]: A dictionary containing the created comment.
     """
-    line_desc = f"line {line}" if line >= 0 else "file level"
-    ctx.info(f"Creating draft comment on {file_path}:{line_desc} for change: {change_id}")
+    line_desc = "file-level" if line == -1 else f"line {line}"
+    ctx.info(f"Creating {line_desc} comment on {file_path} for change: {change_id}")
     
     try:
-        result = await create_draft_comment(change_id, file_path, message, GERRIT_URL, ctx.state["gerrit_session"], line)
-        await ctx.report_progress(1, 1)
+        result = await create_draft_comment(change_id, file_path, message, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"], line)
         return result
     except Exception as e:
-        ctx.error(f"Failed to create comment: {str(e)}")
+        logger.error(f"Error creating comment: {str(e)}")
         raise
 
 
@@ -312,24 +310,33 @@ async def gerrit_set_review_tool(
     message: str = None
 ) -> Dict[str, Any]:
     """
-    Submit all draft comments for a change and apply the specified Code-Review label.
-    
-    This tool publishes all draft comments that have been created and sets the Code-Review label.
+    Set a review on a change.
     
     Args:
         change_id (str): The ID of the change to review.
-        code_review_label (int): The value for the Code-Review label (-1 or -2).
-            - Use -1 for non-critical issues (style, minor improvements).
-            - Use -2 for critical issues (bugs, security issues, major design problems).
+        code_review_label (int): The Code-Review label value (-2, -1, 0, 1, 2).
         ctx (Context): The MCP context object.
-        message (str, optional): An optional message to include with the review. Defaults to None.
+        message (str, optional): Optional review message. If not provided, a default is used.
         
     Returns:
-        Dict[str, Any]: The result of the review submission.
+        Dict[str, Any]: A dictionary containing the review result.
     """
-    label_desc = "critical issues" if code_review_label == -2 else "non-critical issues"
-    ctx.info(f"Submitting review ({label_desc}) for change: {change_id}")
-    return await set_review(change_id, code_review_label, GERRIT_URL, ctx.state["gerrit_session"], message)
+    ctx.info(f"Setting Code-Review={code_review_label} on change: {change_id}")
+    
+    if message is None:
+        # Default messages based on Code-Review label
+        if code_review_label == 2:
+            message = "Looks good! Approved."
+        elif code_review_label == 1:
+            message = "Looks good with minor suggestions."
+        elif code_review_label == 0:
+            message = "No objections."
+        elif code_review_label == -1:
+            message = "Needs improvements before it can be approved."
+        elif code_review_label == -2:
+            message = "Cannot be merged as is."
+    
+    return await set_review(change_id, code_review_label, GERRIT_URL, ctx.request_context.lifespan_context["gerrit_session"], message)
 
 
 # === Define MCP Prompts ===

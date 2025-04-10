@@ -97,17 +97,26 @@ def create_auth_session(gerrit_url, username, api_token):
     return session
 
 
-async def validate_auth(session: aiohttp.ClientSession) -> bool:
+async def validate_auth(session: aiohttp.ClientSession, gerrit_url: str = None, username: str = None) -> bool:
     """
     Validate authentication credentials by making a test request.
     
     Args:
         session (aiohttp.ClientSession): The session to validate
+        gerrit_url (str, optional): The Gerrit URL
+        username (str, optional): The Gerrit username
         
     Returns:
         bool: True if authentication is valid, False otherwise
     """
-    gerrit_url, username, _ = get_auth_credentials()
+    # If not provided, try to get credentials from environment
+    if gerrit_url is None or username is None:
+        try:
+            gerrit_url, username, _ = get_auth_credentials()
+        except ValueError as e:
+            logger.error(f"Authentication validation failed: {str(e)}")
+            return False
+            
     logger.info(f"Validating authentication to {gerrit_url} for user {username}")
     
     try:
