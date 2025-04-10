@@ -1,0 +1,59 @@
+# .github/workflows/build_and_test.yml
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11' # Use a recent version for linting
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install ruff
+        pip install -e . # Install project deps in case ruff needs type info
+    - name: Run Ruff linter
+      run: ruff check .
+    - name: Run Ruff formatter check
+      run: ruff format --check .
+
+  test-build:
+    name: Test (Python ${{ matrix.python-version }}) & Build
+    needs: lint # Run only if linting passes
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # Allow other Python versions to test even if one fails
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build pytest pytest-asyncio mcp
+        pip install -e . # Install the package and its dependencies
+    - name: Run Unit Tests
+      run: |
+        python -m pytest tests/unit -v
+    - name: Build package
+      run: python -m build
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: python-package-${{ matrix.python-version }}
+        path: dist/ 

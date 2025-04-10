@@ -141,7 +141,7 @@ class TestMCPServer(unittest.TestCase):
         # Check for errors in the parsed dictionary
         return self._check_for_error(result_dict)
 
-    def test_get_commit_info(self):
+    def test_90_get_commit_info(self):
         """Test retrieving commit info."""
         logger.info("\nTesting get_commit_info...")
         
@@ -168,7 +168,7 @@ class TestMCPServer(unittest.TestCase):
         
         return self._run_async_test(run_test())
     
-    def test_get_change_detail(self):
+    def test_91_get_change_detail(self):
         """Test retrieving change details."""
         logger.info("\nTesting get_change_detail...")
         
@@ -196,7 +196,7 @@ class TestMCPServer(unittest.TestCase):
         
         return self._run_async_test(run_test())
     
-    def test_get_commit_message(self):
+    def test_92_get_commit_message(self):
         """Test retrieving commit message."""
         logger.info("\nTesting get_commit_message...")
         
@@ -222,7 +222,7 @@ class TestMCPServer(unittest.TestCase):
         
         return self._run_async_test(run_test())
     
-    def test_get_related_changes(self):
+    def test_93_get_related_changes(self):
         """Test retrieving related changes."""
         logger.info("\nTesting get_related_changes...")
         
@@ -248,7 +248,7 @@ class TestMCPServer(unittest.TestCase):
         
         return self._run_async_test(run_test())
     
-    def test_get_file_list(self):
+    def test_01_get_file_list(self):
         """Test retrieving file list."""
         logger.info("\nTesting get_file_list...")
         
@@ -279,7 +279,7 @@ class TestMCPServer(unittest.TestCase):
         
         return self._run_async_test(run_test())
     
-    def test_get_file_diff(self):
+    def test_02_get_file_diff(self):
         """Test retrieving file diff."""
         logger.info("\nTesting get_file_diff...")
         
@@ -326,15 +326,17 @@ class TestMCPServer(unittest.TestCase):
     
     @unittest.skipIf(os.environ.get("SKIP_COMMENT_TESTS", "false").lower() == "true", 
                     "Skipping comment creation tests")
-    def test_create_draft_comment(self):
-        """Test creating a draft comment."""
-        logger.info("\nTesting create_draft_comment...")
+    def test_03_create_draft_comment(self):
+        """Test creating both line-specific and file-level draft comments."""
+        logger.info("\nTesting create_draft_comment (line and file level)...")
         
         async def run_test():
-            # Skip if no line change is available
-            if not self.__class__.test_line_change or not self.__class__.test_file_path:
-                self.skipTest("No line changes available to test comment creation")
-            
+            # Skip if no line change or file path is available
+            if not self.__class__.test_file_path:
+                 self.skipTest("No file path available to test comment creation")
+            if not self.__class__.test_line_change:
+                self.skipTest("No line changes available to test line comment creation")
+
             async with stdio_client(self.__class__.server_params) as (read, write):
                 async with ClientSession(
                     read, write, sampling_callback=self._sampling_callback
@@ -342,33 +344,55 @@ class TestMCPServer(unittest.TestCase):
                     # Initialize the connection
                     await session.initialize()
                     
+                    # --- Test Line-Specific Comment ---
                     line_number = self.__class__.test_line_change.get("line_number", 1)
-                    logger.info(f"\nTesting create_draft_comment on {self.__class__.test_file_path}:{line_number}...")
+                    logger.info(f"\nTesting line comment on {self.__class__.test_file_path}:{line_number}...")
                     
-                    comment_text = "AI integration test: This is a test comment. Please ignore."
-                    result_dict = await self._call_tool_and_check_result(
+                    line_comment_text = "AI integration test: This is a test line comment. Please ignore."
+                    line_result_dict = await self._call_tool_and_check_result(
                         session,
                         "gerrit_create_draft_comment",
                         {
                             "change_id": TEST_CHANGE_ID,
                             "file_path": self.__class__.test_file_path,
                             "line": line_number,
-                            "message": comment_text
+                            "message": line_comment_text
                         }
                     )
                     
-                    self.assertIsInstance(result_dict, dict)
-                    self.assertIn("success", result_dict)
-                    self.assertTrue(result_dict["success"])
-                    
-                    logger.info("✅ create_draft_comment test passed")
-                    return result_dict
+                    self.assertIsInstance(line_result_dict, dict)
+                    self.assertIn("unresolved", line_result_dict)
+                    self.assertTrue(line_result_dict["unresolved"])
+                    self.assertEqual(line_result_dict.get("line"), line_number) # Check line number in response
+                    logger.info("✅ Line-specific comment test passed")
+
+                    # --- Test File-Level Comment ---
+                    logger.info(f"\nTesting file-level comment on {self.__class__.test_file_path}...")
+                    file_comment_text = "AI integration test: This is a test file-level comment. Please ignore."
+                    file_result_dict = await self._call_tool_and_check_result(
+                        session,
+                        "gerrit_create_draft_comment",
+                        {
+                            "change_id": TEST_CHANGE_ID,
+                            "file_path": self.__class__.test_file_path,
+                            "line": -1,  # Indicate file-level comment
+                            "message": file_comment_text
+                        }
+                    )
+
+                    self.assertIsInstance(file_result_dict, dict)
+                    self.assertIn("unresolved", file_result_dict)
+                    self.assertTrue(file_result_dict["unresolved"])
+                    self.assertNotIn("line", file_result_dict, "File-level comment response should not include a 'line' field")
+                    logger.info("✅ File-level comment test passed")
+
+                    return {"line_comment": line_result_dict, "file_comment": file_result_dict} # Return combined results
         
         return self._run_async_test(run_test())
     
     @unittest.skipIf(os.environ.get("SKIP_REVIEW_TESTS", "false").lower() == "true", 
                     "Skipping review submission tests")
-    def test_set_review(self):
+    def test_04_set_review(self):
         """Test submitting a review with Code-Review label."""
         logger.info("\nTesting set_review...")
         
@@ -403,7 +427,7 @@ class TestMCPServer(unittest.TestCase):
         
         return self._run_async_test(run_test())
     
-    def test_list_tools(self):
+    def test_99_list_tools(self):
         """Test listing available tools."""
         logger.info("\nTesting list_tools...")
         

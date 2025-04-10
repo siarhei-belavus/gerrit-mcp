@@ -9,6 +9,7 @@ import functools
 import aiohttp
 from urllib.parse import urlparse, parse_qs, quote
 import asyncio
+import uuid
 
 from .auth import get_auth_credentials
 
@@ -462,59 +463,46 @@ async def create_draft_comment(
     file_path: str,
     message: str,
     session: aiohttp.ClientSession,
-    line: Optional[int] = None,
-    range_input: Optional[Dict[str, int]] = None
+    line: int # Use -1 for file-level comment
 ) -> Dict[str, Any]:
     """
     Create a new draft comment on a specific line in a file for the current revision.
+    If line is -1, creates a global comment on the file without line number.
     
     Args:
         change_id (str): The ID of the change to create a comment for
         file_path (str): The path of the file to comment on
         message (str): The content of the comment
         session (aiohttp.ClientSession): The authenticated session to use
-        line (Optional[int], optional): The line number to comment on. Defaults to None.
-        range_input (Optional[Dict[str, int]], optional): A dict specifying the range. Defaults to None.
+        line (int): The line number to comment on. Use -1 for file-level comment.
         
     Returns:
         Dict[str, Any]: A dictionary containing the created comment
-        
-    Raises:
-        ValueError: If neither line nor range_input is provided, or if both are provided
     """
     gerrit_url, _, _ = get_auth_credentials()
     
-    # Validate input parameters
-    if line is None and range_input is None:
-        error_msg = "Either line or range_input must be provided for a comment"
-        logger.error(error_msg)
-        raise ValueError(error_msg)
-    
-    if line is not None and range_input is not None:
-        error_msg = "Cannot provide both line and range_input for a comment"
-        logger.error(error_msg)
-        raise ValueError(error_msg)
-    
-    # Prepare the comment data
+    # Prepare the comment data (CommentInput entity format)
     comment_data = {
-        "message": message,
         "path": file_path,
+        "message": message,
+        "unresolved": "true" # Consider making this configurable if needed
     }
     
-    # Add line or range information
-    if line is not None:
+    # Add line information
+    # If line == -1, it's a file comment, so we don't add 'line'.
+    if line != -1:
         comment_data["line"] = line
-    elif range_input is not None:
-        comment_data["range"] = range_input
     
-    # Encode file path for URL
-    encoded_file_path = quote(file_path, safe='')
+    # Construct the URL using 'current' revision identifier
     url = f"{gerrit_url}/a/changes/{change_id}/revisions/current/drafts"
-    
+
+    # Use PUT to the collection endpoint as per Gerrit API for creating drafts
+    # Note: Gerrit uses PUT here, not POST, to create/update a draft comment at a specific path/line/range.
+    # If a draft already exists at the location, it's updated. If not, it's created.
     return await make_gerrit_request(
-        url, 
+        url,
         session=session,
-        method="POST",
+        method="PUT",
         data=comment_data
     )
 

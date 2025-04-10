@@ -1,5 +1,7 @@
 # Gerrit AI Review MCP
 
+[![Build and Test](https://github.com/siarhei-belavus/gerrit_mcp/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/siarhei-belavus/gerrit_mcp/actions/workflows/build_and_test.yml)
+
 A Model Context Protocol (MCP) server implementation that integrates Gerrit code reviews with AI-powered IDEs like Cursor. This server enables automated code reviews by connecting your Gerrit instance with AI capabilities through the MCP protocol.
 
 ## Features
@@ -88,7 +90,7 @@ src/
 │   ├── api.py          # API request functions
 │   ├── auth.py         # Authentication utilities
 │   └── models.py       # Data models
-├── mcp/                # MCP server implementation
+├── mmcp/               # MCP server implementation
 │   ├── server.py       # Server setup
 │   └── tools/          # MCP tool implementations
 │       ├── commit_tools.py    # Commit-related tools
@@ -209,9 +211,38 @@ Example prompts:
 
 ### Running Tests
 
+For unit tests (which can run without a Gerrit instance):
 ```bash
-python test_server.py
+# Using the test runner script
+python run_tests.py
+
+# Or directly with pytest
+python -m pytest tests/unit -v
 ```
+
+For integration tests (requires connection to a Gerrit instance):
+```bash
+python tests/integration_test.py
+```
+
+### Setting Up Development Environment
+
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Install the package in development mode
+pip install -e .
+```
+
+### Continuous Integration
+
+This repository uses GitHub Actions for continuous integration, which automatically:
+- Lints the code with Ruff
+- Runs unit tests with pytest
+- Builds the package
+
+The workflow runs on every push to the main branch and on pull requests.
 
 ### Building from Source
 
