@@ -25,6 +25,8 @@ from mmcp.tools import (
     set_review_tool
 )
 
+import argparse
+
 # Configure logging
 configure_logging(level=logging.INFO)
 
@@ -34,6 +36,21 @@ logger = logging.getLogger(__name__)
 # Default timeout for async operations (seconds)
 AUTH_TIMEOUT = 30
 
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description='Run the Gerrit MCP server.')
+parser.add_argument('--gerrit-url', type=str, help='The URL of the Gerrit server')
+parser.add_argument('--username', type=str, help='The username for Gerrit authentication')
+parser.add_argument('--api-token', type=str, help='The API token for Gerrit authentication')
+args = parser.parse_args()
+
+# Use command-line arguments if provided, otherwise fall back to environment variables
+GERRIT_URL = args.gerrit_url or os.getenv('GERRIT_URL')
+GERRIT_USERNAME = args.username or os.getenv('GERRIT_USERNAME')
+GERRIT_API_TOKEN = args.api_token or os.getenv('GERRIT_API_TOKEN')
+
+# Ensure all required values are set
+if not all([GERRIT_URL, GERRIT_USERNAME, GERRIT_API_TOKEN]):
+    raise ValueError('GERRIT_URL, GERRIT_USERNAME, and GERRIT_API_TOKEN must be provided either as arguments or environment variables.')
 
 @asynccontextmanager
 async def gerrit_lifespan(server: FastMCP) -> AsyncIterator[Dict[str, aiohttp.ClientSession]]:
@@ -138,7 +155,7 @@ def get_gerrit_config() -> Dict[str, Any]:
     """
   
     return {
-        "base_url":os.getenv("GERRIT_URL"),
+        "base_url":GERRIT_URL,
         "version": "1.0.0",
         "capabilities": ["code-review", "submit"]
     }
