@@ -31,5 +31,5 @@ Then proceed with implementation, ensuring production-quality code with appropri
 Context:
 username: siarhei_belavus
 token: lb4gSwfKIy5DJYNhJhd5hVcQ18wOQN6MHK/pTtYQ/Q
-base url: @https://gerrit.delivery.epam.com 
-commit url: @https://gerrit.delivery.epam.com/c/planner-backend/+/50996 
+base url: @https://gerrit.delivery.epam.com
+commit url: @https://gerrit.delivery.epam.com/c/planner-backend/+/50996

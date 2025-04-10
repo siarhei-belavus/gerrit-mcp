@@ -1082,7 +1082,7 @@ WIP State	Default
 
 Ready for review
 
-	
+
 
 owner, reviewers, CCs, stars, NEW_PATCHSETS watchers
 
@@ -1091,7 +1091,7 @@ owner, reviewers, CCs, stars, NEW_PATCHSETS watchers
 
 Work in progress
 
-	
+
 
 owner
 
@@ -1227,7 +1227,7 @@ WIP State	notify=ALL
 
 Ready for review
 
-	
+
 
 owner, reviewers, CCs, stars, ABANDONED_CHANGES watchers
 
@@ -1236,7 +1236,7 @@ owner, reviewers, CCs, stars, ABANDONED_CHANGES watchers
 
 Work in progress
 
-	
+
 
 not sent
 
@@ -1245,7 +1245,7 @@ not sent
 
 Reviewable WIP
 
-	
+
 
 owner, reviewers, CCs, stars, ABANDONED_CHANGES watchers
 
@@ -3347,11 +3347,11 @@ WIP State	Default	notify=ALL
 
 Ready for review
 
-	
+
 
 owner, reviewers, CCs
 
-	
+
 
 owner, reviewers, CCs
 
@@ -3360,11 +3360,11 @@ owner, reviewers, CCs
 
 Work in progress
 
-	
+
 
 not sent
 
-	
+
 
 owner, reviewers, CCs
 
@@ -3399,7 +3399,7 @@ WIP State	Default Recipients
 
 Ready for review
 
-	
+
 
 notify=ALL: deleted reviewer (if voted), owner, reviewers, CCs, stars, ALL_COMMENTS watchers
 
@@ -3408,7 +3408,7 @@ notify=ALL: deleted reviewer (if voted), owner, reviewers, CCs, stars, ALL_COMME
 
 Work in progress
 
-	
+
 
 notify=NONE: deleted reviewer (if voted)
 
@@ -4019,19 +4019,19 @@ WIP State	Review Started	Tag Given	Default	notify=ALL
 
 Ready for review
 
-	
+
 
 N/A
 
-	
+
 
 N/A
 
-	
+
 
 everyone
 
-	
+
 
 everyone
 
@@ -4040,19 +4040,19 @@ everyone
 
 Work in progress
 
-	
+
 
 no
 
-	
+
 
 no
 
-	
+
 
 not sent
 
-	
+
 
 everyone
 
@@ -4061,19 +4061,19 @@ everyone
 
 Work in progress
 
-	
+
 
 no
 
-	
+
 
 yes
 
-	
+
 
 owner
 
-	
+
 
 everyone
 
@@ -4082,19 +4082,19 @@ everyone
 
 Work in progress
 
-	
+
 
 yes
 
-	
+
 
 no
 
-	
+
 
 everyone
 
-	
+
 
 everyone
 
@@ -4103,19 +4103,19 @@ everyone
 
 Work in progress
 
-	
+
 
 yes
 
-	
+
 
 yes
 
-	
+
 
 owner
 
-	
+
 
 everyone
 
@@ -4126,11 +4126,11 @@ WIP State	Default	notify=ALL
 
 Ready for review
 
-	
+
 
 owner, reviewers, CCs
 
-	
+
 
 owner, reviewers, CCs
 
@@ -4139,11 +4139,11 @@ owner, reviewers, CCs
 
 Work in progress
 
-	
+
 
 not sent
 
-	
+
 
 owner, reviewers, CCs
 
@@ -5719,11 +5719,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 Message to be added as review comment to the change when abandoning the change.
 
@@ -5732,11 +5732,11 @@ Message to be added as review comment to the change when abandoning the change.
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the change is abandoned.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -5747,11 +5747,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -5764,11 +5764,11 @@ Field Name		Description
 
 method
 
-	
+
 
 optional
 
-	
+
 
 HTTP method to use with the action. Most actions use POST, PUT or DELETE to cause state changes.
 
@@ -5777,11 +5777,11 @@ HTTP method to use with the action. Most actions use POST, PUT or DELETE to caus
 
 label
 
-	
+
 
 optional
 
-	
+
 
 Short title to display to a user describing the action. In the Gerrit web interface the label is used as the text on the button presented in the UI.
 
@@ -5790,11 +5790,11 @@ Short title to display to a user describing the action. In the Gerrit web interf
 
 title
 
-	
+
 
 optional
 
-	
+
 
 Longer text to display describing the action. In a web UI this should be the title attribute of the element, displaying when the user hovers the mouse.
 
@@ -5803,11 +5803,11 @@ Longer text to display describing the action. In a web UI this should be the tit
 
 enabled
 
-	
+
 
 optional
 
-	
+
 
 If true the action is permitted at this time and the caller is likely allowed to execute it. This may change if state is updated at the server or permissions are modified. Not present if false.
 
@@ -5816,11 +5816,11 @@ If true the action is permitted at this time and the caller is likely allowed to
 
 enabled_options
 
-	
+
 
 optional
 
-	
+
 
 Optional list of enabled options.
 See the list of suppported options below.
@@ -5834,11 +5834,11 @@ REST view	Option	Description
 
 rebase
 
-	
+
 
 rebase
 
-	
+
 
 Present if the user can rebase the change.
 This is the case for the change owner and users with the Submit or Rebase permission if they have the Push permission.
@@ -5848,11 +5848,11 @@ This is the case for the change owner and users with the Submit or Rebase permis
 
 rebase
 
-	
+
 
 rebase_on_behalf_of_uploader
 
-	
+
 
 Present if the user can rebase the change on behalf of the uploader.
 This is the case for the change owner and users with the Submit or Rebase permission.
@@ -5862,11 +5862,11 @@ This is the case for the change owner and users with the Submit or Rebase permis
 
 rebase:chain
 
-	
+
 
 rebase
 
-	
+
 
 Present if the user can rebase the chain.
 This is the case if the calling user can rebase each change in the chain. Rebasing a change is allowed for the change owner and users with the Submit or Rebase permission if they have the Push permission.
@@ -5876,11 +5876,11 @@ This is the case if the calling user can rebase each change in the chain. Rebasi
 
 rebase:chain
 
-	
+
 
 rebase_on_behalf_of_uploader
 
-	
+
 
 Present if the user can rebase the chain on behalf of the uploader.
 This is the case if the calling user can rebase each change in the chain on behalf of the uploader. Rebasing a change on behalf of the uploader is allowed for the change owner and users with the Submit or Rebase permission.
@@ -5898,11 +5898,11 @@ Field Name		Description
 
 patch
 
-	
+
 
 required
 
-	
+
 
 The patch to be applied. Must be compatible with git diff output. For example, Get Patch output. The patch must be provided as UTF-8 text, either directly or base64-encoded.
 
@@ -5911,11 +5911,11 @@ The patch to be applied. Must be compatible with git diff output. For example, G
 
 allow_conflicts
 
-	
+
 
 optional
 
-	
+
 
 If true, tolerate conflicts and add conflict markers where required.
 
@@ -5928,11 +5928,11 @@ Field Name		Description
 
 patch
 
-	
+
 
 required
 
-	
+
 
 The details of the patch to be applied as a ApplyPatchInput entity.
 
@@ -5941,11 +5941,11 @@ The details of the patch to be applied as a ApplyPatchInput entity.
 
 commit_message
 
-	
+
 
 optional
 
-	
+
 
 The commit message for the new patch set. If not specified, the latest patch-set message will be used.
 
@@ -5954,11 +5954,11 @@ The commit message for the new patch set. If not specified, the latest patch-set
 
 base
 
-	
+
 
 optional
 
-	
+
 
 40-hex digit SHA-1 of the commit which will be the parent commit of the newly created patch set. If set, it must be a merged commit or a change revision on the destination branch. Otherwise, the target change’s branch tip will be used.
 
@@ -5967,11 +5967,11 @@ optional
 
 author
 
-	
+
 
 optional
 
-	
+
 
 The author of the commit to create. Must be an AccountInput entity with at least the name and email fields set. The caller needs "Forge Author" permission when using this field, unless specifies their own details. This field does not affect the owner of the change, which will continue to use the identity of the caller.
 
@@ -5980,11 +5980,11 @@ The author of the commit to create. Must be an AccountInput entity with at least
 
 response_format_options
 
-	
+
 
 optional
 
-	
+
 
 List of query options to format the response.
 
@@ -5993,11 +5993,11 @@ List of query options to format the response.
 
 amend
 
-	
+
 
 optional
 
-	
+
 
 If true, the revision from the URL will be amended by the patch. This will use the tree of the revision, apply the patch and create a new commit whose tree is the resulting tree of the operation and whose parent(s) are the parent(s) of the revision. Cannot be used together with base.
 
@@ -6012,11 +6012,11 @@ Field Name		Description
 
 value
 
-	
+
 
 optional
 
-	
+
 
 The vote that the user has given for the label. If present and zero, the user is permitted to vote on the label. If absent, the user is not permitted to vote on that label.
 
@@ -6025,11 +6025,11 @@ The vote that the user has given for the label. If present and zero, the user is
 
 permitted_voting_range
 
-	
+
 
 optional
 
-	
+
 
 The VotingRangeInfo the user is authorized to vote on that label. If present, the user is permitted to vote on the label regarding the range values. If absent, the user is not permitted to vote on that label.
 
@@ -6038,11 +6038,11 @@ The VotingRangeInfo the user is authorized to vote on that label. If present, th
 
 date
 
-	
+
 
 optional
 
-	
+
 
 The time and date describing when the approval was made.
 
@@ -6051,11 +6051,11 @@ The time and date describing when the approval was made.
 
 tag
 
-	
+
 
 optional
 
-	
+
 
 Value of the tag field from ReviewInput set while posting the review. Votes/comments that contain tag with 'autogenerated:' prefix can be filtered out in the web UI. NOTE: To apply different tags on different votes/comments multiple invocations of the REST call are required.
 
@@ -6064,11 +6064,11 @@ Value of the tag field from ReviewInput set while posting the review. Votes/comm
 
 post_submit
 
-	
+
 
 not set if false
 
-	
+
 
 If true, this vote was made after the change was submitted.
 
@@ -6081,7 +6081,7 @@ Field Name		Description
 
 account
 
-		
+
 
 AccountInfo entity.
 
@@ -6090,7 +6090,7 @@ AccountInfo entity.
 
 last_update
 
-		
+
 
 The timestamp of the last update.
 
@@ -6099,7 +6099,7 @@ The timestamp of the last update.
 
 reason
 
-		
+
 
 The reason for adding or removing the user. If the update was caused by another user, that account is represented by account ID in reason as <GERRIT_ACCOUNT_18419> and the corresponding AccountInfo can be found in reason_account field.
 
@@ -6108,7 +6108,7 @@ The reason for adding or removing the user. If the update was caused by another 
 
 reason_account
 
-		
+
 
 AccountInfo of the user who caused the update.
 
@@ -6121,11 +6121,11 @@ Field Name		Description
 
 user
 
-	
+
 
 optional
 
-	
+
 
 ID of the account that should be added to the attention set. For removals, this field should be empty or the same as the field in the request header.
 
@@ -6134,7 +6134,7 @@ ID of the account that should be added to the attention set. For removals, this 
 
 reason
 
-		
+
 
 The reason of for adding or removing the user.
 
@@ -6143,11 +6143,11 @@ The reason of for adding or removing the user.
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the change is created.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -6158,11 +6158,11 @@ If not set, the default is OWNER.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the change creation as a map of recipient type to NotifyInfo entity.
 
@@ -6175,7 +6175,7 @@ Field Name	Description
 
 author
 
-	
+
 
 The author of the commit.
 
@@ -6184,7 +6184,7 @@ The author of the commit.
 
 id
 
-	
+
 
 The id of the commit.
 
@@ -6193,7 +6193,7 @@ The id of the commit.
 
 time
 
-	
+
 
 Commit time.
 
@@ -6202,7 +6202,7 @@ Commit time.
 
 commit_msg
 
-	
+
 
 The commit message.
 
@@ -6211,7 +6211,7 @@ The commit message.
 
 ranges
 
-	
+
 
 The blame row coordinates as RangeInfo entities.
 
@@ -6224,11 +6224,11 @@ Field Name		Description
 
 restore_path
 
-	
+
 
 optional
 
-	
+
 
 Path to file to restore.
 
@@ -6237,11 +6237,11 @@ Path to file to restore.
 
 old_path
 
-	
+
 
 optional
 
-	
+
 
 Old path to file to rename.
 
@@ -6250,11 +6250,11 @@ Old path to file to rename.
 
 new_path
 
-	
+
 
 optional
 
-	
+
 
 New path to file to rename.
 
@@ -6267,7 +6267,7 @@ Field Name		Description
 
 message
 
-		
+
 
 New commit message.
 
@@ -6280,11 +6280,11 @@ Field Name		Description
 
 name
 
-	
+
 
 optional
 
-	
+
 
 The name of the author/committer. If not specified, the existing name will be used.
 
@@ -6293,11 +6293,11 @@ The name of the author/committer. If not specified, the existing name will be us
 
 email
 
-	
+
 
 optional
 
-	
+
 
 The email of the author/committer. If not specified, the existing email will be used.
 
@@ -6306,7 +6306,7 @@ The email of the author/committer. If not specified, the existing email will be 
 
 type
 
-		
+
 
 Type of the identity being edited. Must be either AUTHOR or COMMITTER.
 
@@ -6319,7 +6319,7 @@ Field Name		Description
 
 id
 
-		
+
 
 The ID of the change. The format is "'<project>\~<_number>'". 'project' and '_number' are URL encoded. The callers must not rely on the format.
 
@@ -6328,7 +6328,7 @@ The ID of the change. The format is "'<project>\~<_number>'". 'project' and '_nu
 
 triplet_id
 
-		
+
 
 The ID of the change in the format "'<project>~<branch>~<Change-Id>'", where 'project' and 'branch' are URL encoded. For 'branch' the refs/heads/ prefix is omitted.
 
@@ -6337,7 +6337,7 @@ The ID of the change in the format "'<project>~<branch>~<Change-Id>'", where 'pr
 
 project
 
-		
+
 
 The name of the project.
 
@@ -6346,7 +6346,7 @@ The name of the project.
 
 branch
 
-		
+
 
 The name of the target branch.
 The refs/heads/ prefix is omitted.
@@ -6356,11 +6356,11 @@ The refs/heads/ prefix is omitted.
 
 topic
 
-	
+
 
 optional
 
-	
+
 
 The topic to which this change belongs.
 
@@ -6369,11 +6369,11 @@ The topic to which this change belongs.
 
 attention_set
 
-	
+
 
 optional
 
-	
+
 
 The map that maps account IDs to AttentionSetInfo of that account. Those are all accounts that are currently in the attention set.
 
@@ -6382,11 +6382,11 @@ The map that maps account IDs to AttentionSetInfo of that account. Those are all
 
 removed_from_attention_set
 
-	
+
 
 optional
 
-	
+
 
 The map that maps account IDs to AttentionSetInfo of that account. Those are all accounts that were in the attention set but were removed. The AttentionSetInfo is the latest and most recent removal of the account from the attention set.
 
@@ -6395,11 +6395,11 @@ The map that maps account IDs to AttentionSetInfo of that account. Those are all
 
 hashtags
 
-	
+
 
 optional
 
-	
+
 
 List of hashtags that are set on the change.
 
@@ -6408,11 +6408,11 @@ List of hashtags that are set on the change.
 
 custom_keyed_values
 
-	
+
 
 optional
 
-	
+
 
 A map that maps custom keys to custom values that are tied to a specific change, both in the form of strings. Only set if custom keyed values are requested.
 
@@ -6421,7 +6421,7 @@ A map that maps custom keys to custom values that are tied to a specific change,
 
 change_id
 
-		
+
 
 The Change-Id of the change.
 
@@ -6430,7 +6430,7 @@ The Change-Id of the change.
 
 subject
 
-		
+
 
 The subject of the change (header line of the commit message).
 
@@ -6439,7 +6439,7 @@ The subject of the change (header line of the commit message).
 
 status
 
-		
+
 
 The status of the change (NEW, MERGED, ABANDONED).
 
@@ -6448,7 +6448,7 @@ The status of the change (NEW, MERGED, ABANDONED).
 
 created
 
-		
+
 
 The timestamp of when the change was created.
 
@@ -6457,7 +6457,7 @@ The timestamp of when the change was created.
 
 updated
 
-		
+
 
 The timestamp of when the change was last updated.
 
@@ -6466,11 +6466,11 @@ The timestamp of when the change was last updated.
 
 submitted
 
-	
+
 
 only set for merged changes
 
-	
+
 
 The timestamp of when the change was submitted.
 
@@ -6479,11 +6479,11 @@ The timestamp of when the change was submitted.
 
 submitter
 
-	
+
 
 only set for merged changes
 
-	
+
 
 The user who submitted the change, as an AccountInfo entity.
 
@@ -6492,11 +6492,11 @@ The user who submitted the change, as an AccountInfo entity.
 
 starred
 
-	
+
 
 not set if false
 
-	
+
 
 Whether the calling user has starred this change. Only set if requested.
 
@@ -6505,11 +6505,11 @@ Whether the calling user has starred this change. Only set if requested.
 
 reviewed
 
-	
+
 
 not set if false
 
-	
+
 
 Whether the change was reviewed by the calling user. Only set if reviewed is requested.
 
@@ -6518,11 +6518,11 @@ Whether the change was reviewed by the calling user. Only set if reviewed is req
 
 submit_type
 
-	
+
 
 optional
 
-	
+
 
 The submit type of the change.
 Not set for merged changes.
@@ -6532,11 +6532,11 @@ Not set for merged changes.
 
 mergeable
 
-	
+
 
 optional
 
-	
+
 
 Whether the change is mergeable.
 Only set for open changes if change.mergeabilityComputationBehavior is API_REF_UPDATED_AND_CHANGE_REINDEX.
@@ -6546,11 +6546,11 @@ Only set for open changes if change.mergeabilityComputationBehavior is API_REF_U
 
 submittable
 
-	
+
 
 optional
 
-	
+
 
 Whether the change has been approved by the project submit rules.
 Only set if requested.
@@ -6560,7 +6560,7 @@ Only set if requested.
 
 insertions
 
-		
+
 
 Number of inserted lines.
 
@@ -6569,7 +6569,7 @@ Number of inserted lines.
 
 deletions
 
-		
+
 
 Number of deleted lines.
 
@@ -6578,7 +6578,7 @@ Number of deleted lines.
 
 total_comment_count
 
-		
+
 
 Total number of inline comments across all patch sets.
 
@@ -6587,7 +6587,7 @@ Total number of inline comments across all patch sets.
 
 unresolved_comment_count
 
-		
+
 
 Number of unresolved inline comment threads across all patch sets.
 
@@ -6596,7 +6596,7 @@ Number of unresolved inline comment threads across all patch sets.
 
 _number
 
-		
+
 
 The change number. (The underscore is just a relict of a prior attempt to deprecate the change number.)
 
@@ -6605,7 +6605,7 @@ The change number. (The underscore is just a relict of a prior attempt to deprec
 
 virtual_id_number
 
-		
+
 
 The virtual id number is globally unique. For local changes, it is equal to the _number attribute. For imported changes, the original _number is processed through a function designed to prevent conflicts with local change numbers. Note that its usage is intended solely for Gerrit’s internals and UI, and adoption outside these scenarios is not advised.
 
@@ -6614,7 +6614,7 @@ The virtual id number is globally unique. For local changes, it is equal to the 
 
 owner
 
-		
+
 
 The owner of the change as an AccountInfo entity.
 
@@ -6623,11 +6623,11 @@ The owner of the change as an AccountInfo entity.
 
 actions
 
-	
+
 
 optional
 
-	
+
 
 Actions the caller might be able to perform on this revision. The information is a map of view name to ActionInfo entities.
 
@@ -6636,7 +6636,7 @@ Actions the caller might be able to perform on this revision. The information is
 
 submit_records
 
-		
+
 
 List of the SubmitRecordInfo containing the submit records for the change at the latest patchset.
 
@@ -6645,11 +6645,11 @@ List of the SubmitRecordInfo containing the submit records for the change at the
 
 requirements
 
-	
+
 
 optional
 
-	
+
 
 List of the requirements to be met before this change can be submitted. This field is deprecated in favour of submit_requirements.
 
@@ -6658,11 +6658,11 @@ List of the requirements to be met before this change can be submitted. This fie
 
 submit_requirements
 
-	
+
 
 optional
 
-	
+
 
 List of the SubmitRequirementResultInfo containing the evaluated submit requirements for the change. Only set if SUBMIT_REQUIREMENTS is requested.
 
@@ -6671,11 +6671,11 @@ List of the SubmitRequirementResultInfo containing the evaluated submit requirem
 
 labels
 
-	
+
 
 optional
 
-	
+
 
 The labels of the change as a map that maps the label names to LabelInfo entries.
 Only set if labels or detailed labels are requested.
@@ -6685,11 +6685,11 @@ Only set if labels or detailed labels are requested.
 
 permitted_labels
 
-	
+
 
 optional
 
-	
+
 
 A map of the permitted labels that maps a label name to the list of values that are allowed for that label.
 Only set if detailed labels are requested.
@@ -6699,11 +6699,11 @@ Only set if detailed labels are requested.
 
 removable_labels
 
-	
+
 
 optional
 
-	
+
 
 A map of the removable labels that maps a label name to the map of values and reviewers ( AccountInfo entities) that are allowed to be removed from the change.
 Only set if labels or detailed labels are requested.
@@ -6713,11 +6713,11 @@ Only set if labels or detailed labels are requested.
 
 removable_reviewers
 
-	
+
 
 optional
 
-	
+
 
 The reviewers that can be removed by the calling user as a list of AccountInfo entities.
 Only set if labels or detailed labels are requested.
@@ -6727,11 +6727,11 @@ Only set if labels or detailed labels are requested.
 
 reviewers
 
-	
+
 
 optional
 
-	
+
 
 The reviewers as a map that maps a reviewer state to a list of AccountInfo entities. Possible reviewer states are REVIEWER, CC.
 REVIEWER: Users with at least one non-zero vote on the change.
@@ -6743,11 +6743,11 @@ Only set if labels or detailed labels are requested.
 
 pending_reviewers
 
-	
+
 
 optional
 
-	
+
 
 Updates to reviewers that have been made while the change was in the WIP state. Only present on WIP changes and only if there are pending reviewer updates to report. These are reviewers who have not yet been notified about being added to or removed from the change.
 Only set if labels or detailed labels are requested. Possible states are REVIEWER, CC and REMOVED.
@@ -6760,11 +6760,11 @@ REMOVED: Users that were previously reviewers on the change, but have been remov
 
 reviewer_updates
 
-	
+
 
 optional
 
-	
+
 
 Updates to reviewers set for the change as ReviewerUpdateInfo entities. Only set if reviewer updates are requested.
 
@@ -6773,11 +6773,11 @@ Updates to reviewers set for the change as ReviewerUpdateInfo entities. Only set
 
 messages
 
-	
+
 
 optional
 
-	
+
 
 Messages associated with the change as a list of ChangeMessageInfo entities.
 Only set if messages are requested.
@@ -6787,7 +6787,7 @@ Only set if messages are requested.
 
 current_revision_number
 
-		
+
 
 The number of the current patch set of this change.
 
@@ -6797,11 +6797,11 @@ The number of the current patch set of this change.
 
 current_revision
 
-	
+
 
 optional
 
-	
+
 
 The commit ID of the current patch set of this change.
 Only set if the current revision is requested or if all revisions are requested.
@@ -6811,11 +6811,11 @@ Only set if the current revision is requested or if all revisions are requested.
 
 revisions
 
-	
+
 
 optional
 
-	
+
 
 All patch sets of this change as a map that maps the commit ID of the patch set to a RevisionInfo entity.
 Only set if the current revision is requested (in which case it will only contain a key for the current revision) or if all revisions are requested.
@@ -6825,11 +6825,11 @@ Only set if the current revision is requested (in which case it will only contai
 
 meta_rev_id
 
-	
+
 
 optional
 
-	
+
 
 The SHA-1 of the NoteDb meta ref.
 
@@ -6838,11 +6838,11 @@ The SHA-1 of the NoteDb meta ref.
 
 tracking_ids
 
-	
+
 
 optional
 
-	
+
 
 A list of TrackingIdInfo entities describing references to external tracking systems. Only set if tracking ids are requested.
 
@@ -6851,11 +6851,11 @@ A list of TrackingIdInfo entities describing references to external tracking sys
 
 _more_changes
 
-	
+
 
 optional, not set if false
 
-	
+
 
 Whether the query would deliver more results if not limited.
 Only set on the last change that is returned.
@@ -6865,11 +6865,11 @@ Only set on the last change that is returned.
 
 problems
 
-	
+
 
 optional
 
-	
+
 
 A list of ProblemInfo entities describing potential problems with this change. Only set if CHECK is set.
 
@@ -6878,11 +6878,11 @@ A list of ProblemInfo entities describing potential problems with this change. O
 
 is_private
 
-	
+
 
 optional, not set if false
 
-	
+
 
 When present, change is marked as private.
 
@@ -6891,11 +6891,11 @@ When present, change is marked as private.
 
 work_in_progress
 
-	
+
 
 optional, not set if false
 
-	
+
 
 When present, change is marked as Work In Progress.
 
@@ -6904,11 +6904,11 @@ When present, change is marked as Work In Progress.
 
 has_review_started
 
-	
+
 
 optional, not set if false
 
-	
+
 
 When present, change has been marked Ready at some point in time.
 
@@ -6917,11 +6917,11 @@ When present, change has been marked Ready at some point in time.
 
 revert_of
 
-	
+
 
 optional
 
-	
+
 
 The change number of the change that this change reverts.
 
@@ -6930,11 +6930,11 @@ The change number of the change that this change reverts.
 
 submission_id
 
-	
+
 
 optional
 
-	
+
 
 ID of the submission of this change. Only set if the status is MERGED. This ID is equal to the change number of the change that triggered the submission. If the change that triggered the submission also has a topic, it will be "<id>-<topic>" of the change that triggered the submission. The callers must not rely on the format of the submission ID.
 
@@ -6943,11 +6943,11 @@ ID of the submission of this change. Only set if the status is MERGED. This ID i
 
 cherry_pick_of_change
 
-	
+
 
 optional
 
-	
+
 
 The change number of the change that this change was cherry-picked from. Only set if the cherry-pick has been done through the Gerrit REST API (and not if a cherry-picked commit was pushed).
 
@@ -6956,11 +6956,11 @@ The change number of the change that this change was cherry-picked from. Only se
 
 cherry_pick_of_patch_set
 
-	
+
 
 optional
 
-	
+
 
 The patchset number of the change that this change was cherry-picked from. Only set if the cherry-pick has been done through the Gerrit REST API (and not if a cherry-picked commit was pushed).
 
@@ -6969,11 +6969,11 @@ The patchset number of the change that this change was cherry-picked from. Only 
 
 contains_git_conflicts
 
-	
+
 
 optional, not set if false
 
-	
+
 
 Whether the change contains conflicts.
 If true, some of the file contents of the change contain git conflict markers to indicate the conflicts.
@@ -6988,7 +6988,7 @@ Field Name		Description
 
 project
 
-		
+
 
 The name of the project.
 
@@ -6997,7 +6997,7 @@ The name of the project.
 
 branch
 
-		
+
 
 The name of the target branch.
 The refs/heads/ prefix is omitted.
@@ -7007,7 +7007,7 @@ The refs/heads/ prefix is omitted.
 
 subject
 
-		
+
 
 The commit message of the change. Comment lines (beginning with #) will be removed. If the commit message contains a Change-Id (as a "Change-Id: I…​" footer) that Change-Id will be used for the newly created changed. If a change with this Change-Id already exists for same repository and branch, the request is rejected since Change-Ids must be unique per repository and branch. If the commit message doesn’t contain a Change-Id, a newly generated Change-Id is automatically inserted into the commit message.
 
@@ -7016,11 +7016,11 @@ The commit message of the change. Comment lines (beginning with #) will be remov
 
 topic
 
-	
+
 
 optional
 
-	
+
 
 The topic to which this change belongs. Topic can’t contain quotation marks.
 
@@ -7029,11 +7029,11 @@ The topic to which this change belongs. Topic can’t contain quotation marks.
 
 status
 
-	
+
 
 optional, default to NEW
 
-	
+
 
 The status of the change (only NEW accepted here).
 
@@ -7042,11 +7042,11 @@ The status of the change (only NEW accepted here).
 
 is_private
 
-	
+
 
 optional, default to false
 
-	
+
 
 Whether the new change should be marked as private.
 
@@ -7055,11 +7055,11 @@ Whether the new change should be marked as private.
 
 work_in_progress
 
-	
+
 
 optional, default to false
 
-	
+
 
 Whether the new change should be set to work in progress.
 
@@ -7068,11 +7068,11 @@ Whether the new change should be set to work in progress.
 
 base_change
 
-	
+
 
 optional
 
-	
+
 
 A {change-id} that identifies the base change for a create change operation.
 Mutually exclusive with base_commit.
@@ -7083,11 +7083,11 @@ If neither base_commit nor base_change are set, the target branch tip will be us
 
 base_commit
 
-	
+
 
 optional
 
-	
+
 
 A 40-digit hex SHA-1 of the commit which will be the parent commit of the newly created change. If set, it must be a merged commit on the destination branch.
 Mutually exclusive with base_change.
@@ -7098,11 +7098,11 @@ If neither base_commit nor base_change are set, the target branch tip will be us
 
 new_branch
 
-	
+
 
 optional, default to false
 
-	
+
 
 Allow creating a new branch when set to true. Using this option is only possible for non-merge commits (if the merge field is not set).
 
@@ -7111,11 +7111,11 @@ Allow creating a new branch when set to true. Using this option is only possible
 
 validation_options
 
-	
+
 
 optional
 
-	
+
 
 Map with key-value pairs that are forwarded as options to the commit validation listeners (e.g. can be used to skip certain validations). Which validation options are supported depends on the installed commit validation listeners. Gerrit core doesn’t support any validation options, but commit validation listeners that are implemented in plugins may. Please refer to the documentation of the installed plugins to learn whether they support validation options. Unknown validation options are silently ignored.
 
@@ -7124,11 +7124,11 @@ Map with key-value pairs that are forwarded as options to the commit validation 
 
 custom_keyed_values
 
-	
+
 
 optional
 
-	
+
 
 Custom keyed values as a map from custom keys to values.
 
@@ -7137,11 +7137,11 @@ Custom keyed values as a map from custom keys to values.
 
 merge
 
-	
+
 
 optional
 
-	
+
 
 The detail of a merge commit as a MergeInput entity. If set, the target branch (see branch field) must exist (it is not possible to create it automatically by setting the new_branch field to true.
 
@@ -7150,11 +7150,11 @@ The detail of a merge commit as a MergeInput entity. If set, the target branch (
 
 patch
 
-	
+
 
 optional
 
-	
+
 
 The detail of a patch to be applied as an ApplyPatchInput entity.
 
@@ -7163,11 +7163,11 @@ The detail of a patch to be applied as an ApplyPatchInput entity.
 
 author
 
-	
+
 
 optional
 
-	
+
 
 The author of the commit to create. Must be an AccountInput entity with at least the name and email fields set. The caller needs "Forge Author" permission when using this field. This field does not affect the owner of the change, which will continue to use the identity of the caller.
 
@@ -7176,11 +7176,11 @@ The author of the commit to create. Must be an AccountInput entity with at least
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the change is created.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -7191,11 +7191,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the change creation as a map of recipient type to NotifyInfo entity.
 
@@ -7204,11 +7204,11 @@ Additional information about whom to notify about the change creation as a map o
 
 response_format_options
 
-	
+
 
 optional
 
-	
+
 
 List of query options to format the response.
 
@@ -7221,7 +7221,7 @@ Field Name		Description
 
 id
 
-		
+
 
 The ID of the message.
 
@@ -7230,11 +7230,11 @@ The ID of the message.
 
 author
 
-	
+
 
 optional
 
-	
+
 
 Author of the message as an AccountInfo entity.
 Unset if written by the Gerrit system.
@@ -7244,11 +7244,11 @@ Unset if written by the Gerrit system.
 
 real_author
 
-	
+
 
 optional
 
-	
+
 
 Real author of the message as an AccountInfo entity.
 Only set if the message was posted on behalf of another user.
@@ -7258,7 +7258,7 @@ Only set if the message was posted on behalf of another user.
 
 date
 
-		
+
 
 The timestamp this message was posted.
 
@@ -7267,7 +7267,7 @@ The timestamp this message was posted.
 
 message
 
-		
+
 
 The text left by the user or Gerrit system. Accounts are served as account IDs inlined in the text as <GERRIT_ACCOUNT_18419>. All accounts, used in message, can be found in accounts_in_message field.
 
@@ -7276,7 +7276,7 @@ The text left by the user or Gerrit system. Accounts are served as account IDs i
 
 accounts_in_message
 
-		
+
 
 AccountInfo list, used in message.
 
@@ -7285,11 +7285,11 @@ AccountInfo list, used in message.
 
 tag
 
-	
+
 
 optional
 
-	
+
 
 Value of the tag field from ReviewInput set while posting the review. Votes/comments that contain tag with 'autogenerated:' prefix can be filtered out in the web UI. NOTE: To apply different tags on different votes/comments multiple invocations of the REST call are required.
 
@@ -7298,11 +7298,11 @@ Value of the tag field from ReviewInput set while posting the review. Votes/comm
 
 _revision_number
 
-	
+
 
 optional
 
-	
+
 
 Which patchset (if any) generated this message.
 
@@ -7315,11 +7315,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 Commit message for the cherry-pick change. If not set, the commit message of the cherry-picked commit is used.
 
@@ -7328,7 +7328,7 @@ Commit message for the cherry-pick change. If not set, the commit message of the
 
 destination
 
-		
+
 
 Destination branch
 
@@ -7337,11 +7337,11 @@ Destination branch
 
 base
 
-	
+
 
 optional
 
-	
+
 
 40-hex digit SHA-1 of the commit which will be the parent commit of the newly created change. If set, it must be a merged commit or a change revision on the destination branch.
 
@@ -7350,11 +7350,11 @@ optional
 
 parent
 
-	
+
 
 optional, defaults to 1
 
-	
+
 
 Number of the parent relative to which the cherry-pick should be considered.
 
@@ -7363,11 +7363,11 @@ Number of the parent relative to which the cherry-pick should be considered.
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the cherry-pick.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -7378,11 +7378,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -7391,11 +7391,11 @@ Additional information about whom to notify about the update as a map of recipie
 
 keep_reviewers
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, carries reviewers and ccs over from original change to newly created one.
 
@@ -7404,11 +7404,11 @@ If true, carries reviewers and ccs over from original change to newly created on
 
 allow_conflicts
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, the cherry-pick uses content merge and succeeds also if there are conflicts. If there are conflicts the file contents of the created change contain git conflict markers to indicate the conflicts. Callers can find out if there were conflicts by checking the contains_git_conflicts field in the ChangeInfo. If there are conflicts the cherry-pick change is marked as work-in-progress.
 
@@ -7417,11 +7417,11 @@ If true, the cherry-pick uses content merge and succeeds also if there are confl
 
 topic
 
-	
+
 
 optional
 
-	
+
 
 The topic of the created cherry-picked change. If not set, the default depends on the source. If the source is a change with a topic, the resulting topic of the cherry-picked change will be {source_change_topic}-{destination_branch}. Otherwise, if the source change has no topic, or the source is a commit, the created change will have no topic. If the change already exists, the topic will not change if not set. If set, the topic will be overridden.
 
@@ -7430,11 +7430,11 @@ The topic of the created cherry-picked change. If not set, the default depends o
 
 allow_empty
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, the cherry-pick succeeds also if the created commit will be empty. If false, a cherry-pick that would create an empty commit fails without creating the commit.
 
@@ -7443,11 +7443,11 @@ If true, the cherry-pick succeeds also if the created commit will be empty. If f
 
 committer_email
 
-	
+
 
 optional
 
-	
+
 
 Cherry-pick is committed using this email address. Only the registered emails of the calling user are considered valid. Defaults to source commit’s committer email if it is a registered email of the calling user, else defaults to calling user’s preferred email.
 
@@ -7456,11 +7456,11 @@ Cherry-pick is committed using this email address. Only the registered emails of
 
 validation_options
 
-	
+
 
 optional
 
-	
+
 
 Map with key-value pairs that are forwarded as options to the commit validation listeners (e.g. can be used to skip certain validations). Which validation options are supported depends on the installed commit validation listeners. Gerrit core doesn’t support any validation options, but commit validation listeners that are implemented in plugins may. Please refer to the documentation of the installed plugins to learn whether they support validation options. Unknown validation options are silently ignored.
 
@@ -7473,11 +7473,11 @@ Field Name		Description
 
 patch_set
 
-	
+
 
 optional
 
-	
+
 
 The patch set number for the comment; only set in contexts where
 comments may be returned for multiple patch sets.
@@ -7487,7 +7487,7 @@ comments may be returned for multiple patch sets.
 
 id
 
-		
+
 
 The URL encoded UUID of the comment.
 
@@ -7496,11 +7496,11 @@ The URL encoded UUID of the comment.
 
 path
 
-	
+
 
 optional
 
-	
+
 
 The file path for which the inline comment was done.
 Not set if returned in a map where the key is the file path.
@@ -7510,11 +7510,11 @@ Not set if returned in a map where the key is the file path.
 
 side
 
-	
+
 
 optional
 
-	
+
 
 The side on which the comment was added.
 Allowed values are REVISION and PARENT.
@@ -7525,11 +7525,11 @@ If not set, the default is REVISION.
 
 parent
 
-	
+
 
 optional
 
-	
+
 
 The 1-based parent number. Used only for merge commits when side == PARENT. When not set the comment is for the auto-merge tree.
 
@@ -7538,11 +7538,11 @@ The 1-based parent number. Used only for merge commits when side == PARENT. When
 
 line
 
-	
+
 
 optional
 
-	
+
 
 The number of the line for which the comment was done.
 If range is set, this equals the end line of the range.
@@ -7553,11 +7553,11 @@ If neither line nor range is set, it’s a file comment.
 
 range
 
-	
+
 
 optional
 
-	
+
 
 The range of the comment as a CommentRange entity.
 
@@ -7566,11 +7566,11 @@ The range of the comment as a CommentRange entity.
 
 in_reply_to
 
-	
+
 
 optional
 
-	
+
 
 The URL encoded UUID of the comment to which this comment is a reply.
 
@@ -7579,11 +7579,11 @@ The URL encoded UUID of the comment to which this comment is a reply.
 
 message
 
-	
+
 
 optional
 
-	
+
 
 The comment message.
 
@@ -7592,7 +7592,7 @@ The comment message.
 
 updated
 
-		
+
 
 The timestamp of when this comment was written.
 
@@ -7601,11 +7601,11 @@ The timestamp of when this comment was written.
 
 author
 
-	
+
 
 optional
 
-	
+
 
 The author of the message as an AccountInfo entity.
 Unset for draft comments, assumed to be the calling user.
@@ -7615,11 +7615,11 @@ Unset for draft comments, assumed to be the calling user.
 
 tag
 
-	
+
 
 optional
 
-	
+
 
 Value of the tag field from ReviewInput set while posting the review. NOTE: To apply different tags on different votes/comments multiple invocations of the REST call are required.
 
@@ -7628,11 +7628,11 @@ Value of the tag field from ReviewInput set while posting the review. NOTE: To a
 
 unresolved
 
-	
+
 
 optional
 
-	
+
 
 Whether or not the comment must be addressed by the user. The state of resolution of a comment thread is stored in the last comment in that thread chronologically.
 
@@ -7641,11 +7641,11 @@ Whether or not the comment must be addressed by the user. The state of resolutio
 
 change_message_id
 
-	
+
 
 optional
 
-	
+
 
 Available with the list change comments endpoint. Contains the id of the change message that this comment is linked to.
 
@@ -7654,11 +7654,11 @@ Available with the list change comments endpoint. Contains the id of the change 
 
 commit_id
 
-	
+
 
 optional
 
-	
+
 
 Hex commit SHA-1 (40 characters string) of the commit of the patchset to which this comment applies.
 
@@ -7667,11 +7667,11 @@ Hex commit SHA-1 (40 characters string) of the commit of the patchset to which t
 
 context_lines
 
-	
+
 
 optional
 
-	
+
 
 A list of ContextLine containing the lines of the source file where the comment was written. Available only if the "enable-context" parameter (see List Change Comments) is set.
 
@@ -7680,11 +7680,11 @@ A list of ContextLine containing the lines of the source file where the comment 
 
 source_content_type
 
-	
+
 
 optional
 
-	
+
 
 Mime type of the file where the comment is written. Available only if the "enable-context" parameter (see List Change Comments) is set.
 
@@ -7693,11 +7693,11 @@ Mime type of the file where the comment is written. Available only if the "enabl
 
 fix_suggestions
 
-	
+
 
 optional
 
-	
+
 
 Suggested fixes for this comment as a list of FixSuggestionInfo entities.
 
@@ -7710,11 +7710,11 @@ Field Name		Description
 
 id
 
-	
+
 
 optional
 
-	
+
 
 The URL encoded UUID of the comment if an existing draft comment should be updated.
 
@@ -7723,11 +7723,11 @@ The URL encoded UUID of the comment if an existing draft comment should be updat
 
 path
 
-	
+
 
 optional
 
-	
+
 
 The file path for which the inline comment should be added.
 Doesn’t need to be set if contained in a map where the key is the file path.
@@ -7737,11 +7737,11 @@ Doesn’t need to be set if contained in a map where the key is the file path.
 
 side
 
-	
+
 
 optional
 
-	
+
 
 The side on which the comment should be added.
 Allowed values are REVISION and PARENT.
@@ -7752,11 +7752,11 @@ If not set, the default is REVISION.
 
 line
 
-	
+
 
 optional
 
-	
+
 
 The number of the line for which the comment should be added.
 0 if it is a file comment.
@@ -7768,11 +7768,11 @@ If range is set, this value is ignored in favor of the end_line of the range.
 
 range
 
-	
+
 
 optional
 
-	
+
 
 The range of the comment as a CommentRange entity.
 
@@ -7781,11 +7781,11 @@ The range of the comment as a CommentRange entity.
 
 in_reply_to
 
-	
+
 
 optional
 
-	
+
 
 The URL encoded UUID of the comment to which this comment is a reply.
 
@@ -7794,11 +7794,11 @@ The URL encoded UUID of the comment to which this comment is a reply.
 
 updated
 
-	
+
 
 optional
 
-	
+
 
 The timestamp of this comment.
 Accepted but ignored.
@@ -7808,11 +7808,11 @@ Accepted but ignored.
 
 message
 
-	
+
 
 optional
 
-	
+
 
 The comment message.
 If not set and an existing draft comment is updated, the existing draft comment is deleted.
@@ -7822,11 +7822,11 @@ If not set and an existing draft comment is updated, the existing draft comment 
 
 tag
 
-	
+
 
 optional, drafts only
 
-	
+
 
 Value of the tag field. Only allowed on draft comment
 inputs; for published comments, use the tag field in
@@ -7837,11 +7837,11 @@ ReviewInput. Votes/comments that contain tag with 'autogenerated:' prefix can be
 
 unresolved
 
-	
+
 
 optional
 
-	
+
 
 Whether or not the comment must be addressed by the user. This value will default to false if the comment is an orphan, or the value of the in_reply_to comment if it is supplied.
 
@@ -7850,11 +7850,11 @@ Whether or not the comment must be addressed by the user. This value will defaul
 
 fix_suggestions
 
-	
+
 
 optional
 
-	
+
 
 Suggested fixes for this comment as a list of FixSuggestionInfo entities.
 
@@ -7871,7 +7871,7 @@ Field Name		Description
 
 start_line
 
-		
+
 
 The start line number of the range. (1-based)
 
@@ -7880,7 +7880,7 @@ The start line number of the range. (1-based)
 
 start_character
 
-		
+
 
 The character position in the start line. (0-based)
 
@@ -7889,7 +7889,7 @@ The character position in the start line. (0-based)
 
 end_line
 
-		
+
 
 The end line number of the range. (1-based)
 
@@ -7898,7 +7898,7 @@ The end line number of the range. (1-based)
 
 end_character
 
-		
+
 
 The character position in the end line. (0-based)
 
@@ -7911,7 +7911,7 @@ Field Name	Description
 
 line_number
 
-	
+
 
 The line number of the source line.
 
@@ -7920,7 +7920,7 @@ The line number of the source line.
 
 context_line
 
-	
+
 
 String containing the line text.
 
@@ -7933,11 +7933,11 @@ Field Name		Description
 
 commit
 
-	
+
 
 Optional
 
-	
+
 
 The commit ID. Not set if included in a RevisionInfo entity that is contained in a map which has the commit ID as key.
 
@@ -7946,7 +7946,7 @@ The commit ID. Not set if included in a RevisionInfo entity that is contained in
 
 parents
 
-		
+
 
 The parent commits of this commit as a list of CommitInfo entities. In each parent only the commit and subject fields are populated.
 
@@ -7955,7 +7955,7 @@ The parent commits of this commit as a list of CommitInfo entities. In each pare
 
 author
 
-		
+
 
 The author of the commit as a GitPersonInfo entity.
 
@@ -7964,7 +7964,7 @@ The author of the commit as a GitPersonInfo entity.
 
 committer
 
-		
+
 
 The committer of the commit as a GitPersonInfo entity.
 
@@ -7973,7 +7973,7 @@ The committer of the commit as a GitPersonInfo entity.
 
 subject
 
-		
+
 
 The subject of the commit (header line of the commit message).
 
@@ -7982,7 +7982,7 @@ The subject of the commit (header line of the commit message).
 
 message
 
-		
+
 
 The commit message.
 
@@ -7991,11 +7991,11 @@ The commit message.
 
 web_links
 
-	
+
 
 optional
 
-	
+
 
 Links to the patch set in external sites as a list of WebLinkInfo entities.
 
@@ -8004,11 +8004,11 @@ Links to the patch set in external sites as a list of WebLinkInfo entities.
 
 resolve_conflicts_web_links
 
-	
+
 
 optional
 
-	
+
 
 Links to the commit in external sites for resolving conflicts as a list of WebLinkInfo entities.
 
@@ -8021,7 +8021,7 @@ Field Name	Description
 
 subject
 
-	
+
 
 The subject of the change (first line of the commit message).
 
@@ -8030,7 +8030,7 @@ The subject of the change (first line of the commit message).
 
 full_message
 
-	
+
 
 Full commit message of the change.
 
@@ -8039,7 +8039,7 @@ Full commit message of the change.
 
 footers
 
-	
+
 
 The footers from the commit message as a map of key-value pairs. If there are multiple footers with the same key, only the last footer with that key is returned.
 
@@ -8052,7 +8052,7 @@ Field Name		Description
 
 message
 
-		
+
 
 New commit message.
 
@@ -8061,11 +8061,11 @@ New commit message.
 
 committer_email
 
-	
+
 
 optional
 
-	
+
 
 New message is committed using this email address. Only the registered emails of the calling user are considered valid.
 
@@ -8074,11 +8074,11 @@ New message is committed using this email address. Only the registered emails of
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the commit message was updated.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -8089,11 +8089,11 @@ If not set, the default is OWNER for WIP changes and ALL otherwise.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -8106,11 +8106,11 @@ Field Name		Description
 
 ours
 
-	
+
 
 optional
 
-	
+
 
 The SHA1 of the commit that was used as "ours" for the Git merge that created the revision.
 - For merge commits that are created by the Create Change REST endpoint "ours" is the SHA1 of the change’s target branch (the branch that is specified as branch in the ChangeInput).
@@ -8124,11 +8124,11 @@ Guaranteed to be set if contains_conflicts is true. If contains_conflicts is fal
 
 theirs
 
-	
+
 
 optional
 
-	
+
 
 The SHA1 of the commit that was used as "theirs" for the Git merge that created the revision.
 - For merge commits that are created by the the Create Change and the Create Merge Patch Set For Change REST endpoints "theirs" is the SHA1 of the source branch (the branch that is specified as source in the MergeInput).
@@ -8141,7 +8141,7 @@ Guaranteed to be set if contains_conflicts is true. If contains_conflicts is fal
 
 contains_conflicts
 
-		
+
 
 Whether any of the files in the revision has a conflict due to merging "ours" and "theirs".
 If "true" at least one of the files in the revision has a conflict and contains Git conflict markers. The conflicts occurred while performing a merge between "ours" and "theirs".
@@ -8157,11 +8157,11 @@ Field Name		Description
 
 reason
 
-	
+
 
 optional
 
-	
+
 
 The reason why the change message should be deleted.
 If set, the change message will be replaced with "Change message removed by: name\nReason: reason`", or just "Change message removed by: `name." if not set.
@@ -8175,11 +8175,11 @@ Field Name		Description
 
 reason
 
-	
+
 
 optional
 
-	
+
 
 The reason why the comment should be deleted.
 If set, the comment’s message will be replaced with "Comment removed by: name; Reason: reason`", or just "Comment removed by: `name." if not set.
@@ -8193,11 +8193,11 @@ Field Name		Description
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the reviewer is deleted.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -8208,11 +8208,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -8225,11 +8225,11 @@ Field Name		Description
 
 label
 
-	
+
 
 optional
 
-	
+
 
 The label for which the vote should be deleted.
 If set, must match the label in the URL.
@@ -8239,11 +8239,11 @@ If set, must match the label in the URL.
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the vote is deleted.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -8254,11 +8254,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -8267,11 +8267,11 @@ Additional information about whom to notify about the update as a map of recipie
 
 ignore_automatic_attention_set_rules
 
-	
+
 
 optional
 
-	
+
 
 If set to true, ignore all automatic attention set rules described in the attention set. When not set, the default is false.
 
@@ -8280,11 +8280,11 @@ If set to true, ignore all automatic attention set rules described in the attent
 
 reason
 
-	
+
 
 optional
 
-	
+
 
 The reason why this vote is deleted. Will
 go into the change message.
@@ -8298,7 +8298,7 @@ Field Name	Description
 
 description
 
-	
+
 
 The description text.
 
@@ -8311,11 +8311,11 @@ Field Name		Description
 
 a
 
-	
+
 
 optional
 
-	
+
 
 Content only in the file on side A (deleted in B).
 
@@ -8324,11 +8324,11 @@ Content only in the file on side A (deleted in B).
 
 b
 
-	
+
 
 optional
 
-	
+
 
 Content only in the file on side B (added in B).
 
@@ -8337,11 +8337,11 @@ Content only in the file on side B (added in B).
 
 ab
 
-	
+
 
 optional
 
-	
+
 
 Content in the file on both sides (unchanged).
 
@@ -8350,11 +8350,11 @@ Content in the file on both sides (unchanged).
 
 edit_a
 
-	
+
 
 only present when the intraline parameter is set and the DiffContent is a replace, i.e. both a and b are present
 
-	
+
 
 Text sections deleted from side A as a DiffIntralineInfo entity.
 
@@ -8363,11 +8363,11 @@ Text sections deleted from side A as a DiffIntralineInfo entity.
 
 edit_b
 
-	
+
 
 only present when the intraline parameter is set and the DiffContent is a replace, i.e. both a and b are present
 
-	
+
 
 Text sections inserted in side B as a DiffIntralineInfo entity.
 
@@ -8376,11 +8376,11 @@ Text sections inserted in side B as a DiffIntralineInfo entity.
 
 due_to_rebase
 
-	
+
 
 not set if false
 
-	
+
 
 Indicates whether this entry was introduced by a rebase.
 
@@ -8389,11 +8389,11 @@ Indicates whether this entry was introduced by a rebase.
 
 due_to_move
 
-	
+
 
 not set if false
 
-	
+
 
 Indicates whether this entry was introduced by a move operation.
 
@@ -8402,11 +8402,11 @@ Indicates whether this entry was introduced by a move operation.
 
 skip
 
-	
+
 
 optional
 
-	
+
 
 count of lines skipped on both sides when the file is too large to include all common lines.
 
@@ -8415,11 +8415,11 @@ count of lines skipped on both sides when the file is too large to include all c
 
 common
 
-	
+
 
 optional
 
-	
+
 
 Set to true if the region is common according to the requested ignore-whitespace parameter, but a and b contain differing amounts of whitespace. When present and true a and b are used instead of ab.
 
@@ -8432,7 +8432,7 @@ Field Name		Description
 
 name
 
-		
+
 
 The name of the file.
 
@@ -8441,7 +8441,7 @@ The name of the file.
 
 content_type
 
-		
+
 
 The content type of the file. For the commit message and merge list the value is text/x-gerrit-commit-message and text/x-gerrit-merge-list respectively. For git links the value is x-git/gitlink. For symlinks the value is x-git/symlink. For regular files the value is the file mime type (e.g. text/x-java, text/x-c++src, etc…​).
 
@@ -8450,7 +8450,7 @@ The content type of the file. For the commit message and merge list the value is
 
 lines
 
-		
+
 
 The total number of lines in the file.
 
@@ -8459,11 +8459,11 @@ The total number of lines in the file.
 
 web_links
 
-	
+
 
 optional
 
-	
+
 
 Links to the file in external sites as a list of WebLinkInfo entries.
 
@@ -8478,11 +8478,11 @@ Field Name		Description
 
 meta_a
 
-	
+
 
 not present when the file is added
 
-	
+
 
 Meta information about the file on side A as a DiffFileMetaInfo entity.
 
@@ -8491,11 +8491,11 @@ Meta information about the file on side A as a DiffFileMetaInfo entity.
 
 meta_b
 
-	
+
 
 not present when the file is deleted
 
-	
+
 
 Meta information about the file on side B as a DiffFileMetaInfo entity.
 
@@ -8504,7 +8504,7 @@ Meta information about the file on side B as a DiffFileMetaInfo entity.
 
 change_type
 
-		
+
 
 The type of change (ADDED, MODIFIED, DELETED, RENAMED COPIED, REWRITE).
 
@@ -8513,11 +8513,11 @@ The type of change (ADDED, MODIFIED, DELETED, RENAMED COPIED, REWRITE).
 
 intraline_status
 
-	
+
 
 only set when the intraline parameter was specified in the request
 
-	
+
 
 Intraline status (OK, ERROR, TIMEOUT).
 
@@ -8526,7 +8526,7 @@ Intraline status (OK, ERROR, TIMEOUT).
 
 diff_header
 
-		
+
 
 A list of strings representing the patch set diff header.
 
@@ -8535,7 +8535,7 @@ A list of strings representing the patch set diff header.
 
 content
 
-		
+
 
 The content differences in the file as a list of DiffContent entities.
 
@@ -8544,11 +8544,11 @@ The content differences in the file as a list of DiffContent entities.
 
 web_links
 
-	
+
 
 optional
 
-	
+
 
 Links to the file diff in external sites as a list of DiffWebLinkInfo entries.
 
@@ -8557,11 +8557,11 @@ Links to the file diff in external sites as a list of DiffWebLinkInfo entries.
 
 edit_web_links
 
-	
+
 
 optional
 
-	
+
 
 Links to edit the file in external sites as a list of WebLinkInfo entries.
 
@@ -8570,11 +8570,11 @@ Links to edit the file in external sites as a list of WebLinkInfo entries.
 
 binary
 
-	
+
 
 not set if false
 
-	
+
 
 Whether the file is binary.
 
@@ -8595,7 +8595,7 @@ Field Name		Description
 
 name
 
-		
+
 
 See WebLinkInfo
 
@@ -8604,11 +8604,11 @@ See WebLinkInfo
 
 tooltip
 
-	
+
 
 optional
 
-	
+
 
 See WebLinkInfo
 
@@ -8617,7 +8617,7 @@ See WebLinkInfo
 
 url
 
-		
+
 
 See WebLinkInfo
 
@@ -8626,11 +8626,11 @@ See WebLinkInfo
 
 image_url
 
-	
+
 
 optional
 
-	
+
 
 See WebLinkInfo
 
@@ -8639,7 +8639,7 @@ See WebLinkInfo
 
 show_on_side_by_side_diff_view
 
-		
+
 
 Whether the web link should be shown on the side-by-side diff screen.
 
@@ -8648,7 +8648,7 @@ Whether the web link should be shown on the side-by-side diff screen.
 
 show_on_unified_diff_view
 
-		
+
 
 Whether the web link should be shown on the unified diff screen.
 
@@ -8665,11 +8665,11 @@ Field Name		Description
 
 add
 
-	
+
 
 optional
 
-	
+
 
 The map of custom keyed values to be added to the change.
 
@@ -8678,11 +8678,11 @@ The map of custom keyed values to be added to the change.
 
 remove
 
-	
+
 
 optional
 
-	
+
 
 The list of custom keys to be removed from the change.
 
@@ -8691,7 +8691,7 @@ Field Name	Description
 
 fix_replacement_infos
 
-	
+
 
 A list of FixReplacementInfo.
 
@@ -8704,11 +8704,11 @@ Field Name		Description
 
 web_links
 
-	
+
 
 optional
 
-	
+
 
 Links to the diff info in external sites as a list of WebLinkInfo entities.
 
@@ -8721,7 +8721,7 @@ Field Name		Description
 
 commit
 
-		
+
 
 The commit of change edit as CommitInfo entity.
 
@@ -8730,7 +8730,7 @@ The commit of change edit as CommitInfo entity.
 
 base_patch_set_number
 
-		
+
 
 The patch set number of the patch set the change edit is based on.
 
@@ -8739,7 +8739,7 @@ The patch set number of the patch set the change edit is based on.
 
 base_revision
 
-		
+
 
 The revision of the patch set the change edit is based on.
 
@@ -8748,7 +8748,7 @@ The revision of the patch set the change edit is based on.
 
 ref
 
-		
+
 
 The ref of the change edit.
 
@@ -8757,11 +8757,11 @@ The ref of the change edit.
 
 fetch
 
-	
+
 
 optional
 
-	
+
 
 Information about how to fetch this patch set. The fetch information is provided as a map that maps the protocol name (“git”, “http”, “ssh”) to FetchInfo entities.
 
@@ -8770,11 +8770,11 @@ Information about how to fetch this patch set. The fetch information is provided
 
 files
 
-	
+
 
 optional
 
-	
+
 
 The files of the change edit as a map that maps the file names to FileInfo entities.
 
@@ -8783,11 +8783,11 @@ The files of the change edit as a map that maps the file names to FileInfo entit
 
 contains_git_conflicts
 
-	
+
 
 optional, not set if false
 
-	
+
 
 Whether the change edit contains conflicts.
 If true, some of the file contents of the change edit contain git conflict markers to indicate the conflicts.
@@ -8802,7 +8802,7 @@ Field Name		Description
 
 url
 
-		
+
 
 The URL of the project.
 
@@ -8811,7 +8811,7 @@ The URL of the project.
 
 ref
 
-		
+
 
 The ref of the patch set.
 
@@ -8820,11 +8820,11 @@ The ref of the patch set.
 
 commands
 
-	
+
 
 optional
 
-	
+
 
 The download commands for this patch set as a map that maps the command names to the commands.
 Only set if download commands are requested.
@@ -8838,11 +8838,11 @@ Field Name		Description
 
 status
 
-	
+
 
 optional
 
-	
+
 
 The status of the file (“A”=Added, “D”=Deleted, “R”=Renamed, “C”=Copied, “W”=Rewritten).
 Not set if the file was Modified (“M”).
@@ -8852,11 +8852,11 @@ Not set if the file was Modified (“M”).
 
 binary
 
-	
+
 
 not set if false
 
-	
+
 
 Whether the file is binary.
 
@@ -8865,11 +8865,11 @@ Whether the file is binary.
 
 old_path
 
-	
+
 
 optional
 
-	
+
 
 The old file path.
 Only set if the file was renamed or copied.
@@ -8879,11 +8879,11 @@ Only set if the file was renamed or copied.
 
 lines_inserted
 
-	
+
 
 optional
 
-	
+
 
 Number of inserted lines.
 Not set for binary files or if no lines were inserted.
@@ -8894,11 +8894,11 @@ An empty last line is not included in the count and hence this number can differ
 
 lines_deleted
 
-	
+
 
 optional
 
-	
+
 
 Number of deleted lines.
 Not set for binary files or if no lines were deleted.
@@ -8909,7 +8909,7 @@ An empty last line is not included in the count and hence this number can differ
 
 size_delta
 
-		
+
 
 Number of bytes by which the file size increased/decreased.
 
@@ -8918,7 +8918,7 @@ Number of bytes by which the file size increased/decreased.
 
 size
 
-		
+
 
 File size in bytes.
 
@@ -8927,11 +8927,11 @@ File size in bytes.
 
 old_mode
 
-	
+
 
 optional
 
-	
+
 
 File mode in octal (e.g. 100644) at the old commit. The first three digits indicate the file type and the last three digits contain the file permission bits. For added files, this field will not be present.
 
@@ -8940,11 +8940,11 @@ File mode in octal (e.g. 100644) at the old commit. The first three digits indic
 
 new_mode
 
-	
+
 
 optional
 
-	
+
 
 File mode in octal (e.g. 100644) at the new commit. The first three digits indicate the file type and the last three digits contain the file permission bits. For deleted files, this field will not be present.
 
@@ -8957,7 +8957,7 @@ Field Name	Description
 
 delete_patch_set_if_commit_missing
 
-	
+
 
 If true, delete patch sets from the database if they refer to missing commit options.
 
@@ -8966,7 +8966,7 @@ If true, delete patch sets from the database if they refer to missing commit opt
 
 expect_merged_as
 
-	
+
 
 If set, check that the change is merged into the destination branch as this exact SHA-1. If not, insert a new patch set referring to this commit.
 
@@ -8979,11 +8979,11 @@ Field Name		Description
 
 fix_id
 
-	
+
 
 generated, don’t set
 
-	
+
 
 The UUID of the suggested fix. It will be generated automatically and hence will be ignored if it’s set for input objects.
 
@@ -8992,7 +8992,7 @@ The UUID of the suggested fix. It will be generated automatically and hence will
 
 description
 
-		
+
 
 A description of the suggested fix.
 
@@ -9001,7 +9001,7 @@ A description of the suggested fix.
 
 replacements
 
-		
+
 
 A list of FixReplacementInfo entities indicating how the content of one or several files should be modified. Within a file, they should refer to non-overlapping regions.
 
@@ -9014,7 +9014,7 @@ Field Name	Description
 
 path
 
-	
+
 
 The path of the file which should be modified. Any file in the repository may be modified. The commit message can be modified via the magic file /COMMIT_MSG though only the part below the generated header of that magic file can be modified. References to the header lines will result in errors when the fix is applied.
 
@@ -9023,7 +9023,7 @@ The path of the file which should be modified. Any file in the repository may be
 
 range
 
-	
+
 
 A CommentRange indicating which content of the file should be replaced. Lines in the file are assumed to be separated by the line feed character.
 
@@ -9032,7 +9032,7 @@ A CommentRange indicating which content of the file should be replaced. Lines in
 
 replacement
 
-	
+
 
 The content which should be used instead of the current one.
 
@@ -9045,7 +9045,7 @@ Field Name	Description
 
 name
 
-	
+
 
 The name of the author/committer.
 
@@ -9054,7 +9054,7 @@ The name of the author/committer.
 
 email
 
-	
+
 
 The email address of the author/committer.
 
@@ -9063,7 +9063,7 @@ The email address of the author/committer.
 
 date
 
-	
+
 
 The timestamp of when this identity was constructed.
 
@@ -9072,7 +9072,7 @@ The timestamp of when this identity was constructed.
 
 tz
 
-	
+
 
 The timezone offset from UTC of when this identity was constructed.
 
@@ -9085,7 +9085,7 @@ Field Name	Description
 
 id
 
-	
+
 
 The UUID of the group.
 
@@ -9094,7 +9094,7 @@ The UUID of the group.
 
 name
 
-	
+
 
 The name of the group.
 
@@ -9107,11 +9107,11 @@ Field Name		Description
 
 add
 
-	
+
 
 optional
 
-	
+
 
 The list of hashtags to be added to the change.
 
@@ -9120,11 +9120,11 @@ The list of hashtags to be added to the change.
 
 remove
 
-	
+
 
 optional
 
-	
+
 
 The list of hashtags to be removed from the change.
 
@@ -9137,7 +9137,7 @@ Field Name		Description
 
 branches
 
-		
+
 
 The list of branches this change was merged into. Each branch is listed without the 'refs/head/' prefix.
 
@@ -9146,7 +9146,7 @@ The list of branches this change was merged into. Each branch is listed without 
 
 tags
 
-		
+
 
 The list of tags this change was tagged with. Each tag is listed without the 'refs/tags/' prefix.
 
@@ -9155,11 +9155,11 @@ The list of tags this change was tagged with. Each tag is listed without the 're
 
 external
 
-	
+
 
 optional
 
-	
+
 
 A map that maps a name to a list of external systems that include this change, e.g. a list of servers on which this change is deployed.
 
@@ -9178,11 +9178,11 @@ Field Name		Description
 
 optional
 
-	
+
 
 not set if false
 
-	
+
 
 Whether the label is optional. Optional means the label may be set, but it’s neither necessary for submission nor does it block submission if set.
 
@@ -9191,11 +9191,11 @@ Whether the label is optional. Optional means the label may be set, but it’s n
 
 description
 
-	
+
 
 optional
 
-	
+
 
 The description of the label.
 
@@ -9204,11 +9204,11 @@ The description of the label.
 
 approved
 
-	
+
 
 optional
 
-	
+
 
 One user who approved this label on the change (voted the maximum value) as an AccountInfo entity.
 
@@ -9217,11 +9217,11 @@ One user who approved this label on the change (voted the maximum value) as an A
 
 rejected
 
-	
+
 
 optional
 
-	
+
 
 One user who rejected this label on the change (voted the minimum value) as an AccountInfo entity.
 
@@ -9230,11 +9230,11 @@ One user who rejected this label on the change (voted the minimum value) as an A
 
 recommended
 
-	
+
 
 optional
 
-	
+
 
 One user who recommended this label on the change (voted positively, but not the maximum value) as an AccountInfo entity.
 
@@ -9243,11 +9243,11 @@ One user who recommended this label on the change (voted positively, but not the
 
 disliked
 
-	
+
 
 optional
 
-	
+
 
 One user who disliked this label on the change (voted negatively, but not the minimum value) as an AccountInfo entity.
 
@@ -9256,11 +9256,11 @@ One user who disliked this label on the change (voted negatively, but not the mi
 
 blocking
 
-	
+
 
 optional
 
-	
+
 
 If true, the label blocks submit operation. If not set, the default is false.
 
@@ -9269,11 +9269,11 @@ If true, the label blocks submit operation. If not set, the default is false.
 
 value
 
-	
+
 
 optional
 
-	
+
 
 The voting value of the user who recommended/disliked this label on the change if it is not “+1”/“-1”.
 
@@ -9282,11 +9282,11 @@ The voting value of the user who recommended/disliked this label on the change i
 
 default_value
 
-	
+
 
 optional
 
-	
+
 
 The default voting value for the label. This value may be outside the range specified in permitted_labels.
 
@@ -9295,11 +9295,11 @@ The default voting value for the label. This value may be outside the range spec
 
 votes
 
-	
+
 
 optional
 
-	
+
 
 A list of integers containing the vote values applied to this label at the latest patchset.
 
@@ -9308,11 +9308,11 @@ A list of integers containing the vote values applied to this label at the lates
 
 all
 
-	
+
 
 optional
 
-	
+
 
 List of all approvals for this label as a list of ApprovalInfo entities. Items in this list may not represent actual votes cast by users; if a user votes on any label, a corresponding ApprovalInfo will appear in this list for all labels.
 The permitted_voting_range attribute is only set if the DETAILED_LABELS option is requested.
@@ -9322,11 +9322,11 @@ The permitted_voting_range attribute is only set if the DETAILED_LABELS option i
 
 values
 
-	
+
 
 optional
 
-	
+
 
 A map of all values that are allowed for this label. The map maps the values (“-2”, “-1”, " `0`", “+1”, “+2”) to the value descriptions.
 
@@ -9339,7 +9339,7 @@ Field Name		Description
 
 submit_type
 
-		
+
 
 Submit type used for this change, can be MERGE_IF_NECESSARY, FAST_FORWARD_ONLY, REBASE_IF_NECESSARY, REBASE_ALWAYS, MERGE_ALWAYS or CHERRY_PICK.
 
@@ -9348,11 +9348,11 @@ Submit type used for this change, can be MERGE_IF_NECESSARY, FAST_FORWARD_ONLY, 
 
 strategy
 
-	
+
 
 optional
 
-	
+
 
 The strategy of the merge, can be recursive, resolve, simple-two-way-in-core, ours or theirs.
 
@@ -9361,7 +9361,7 @@ The strategy of the merge, can be recursive, resolve, simple-two-way-in-core, ou
 
 mergeable
 
-		
+
 
 true if this change is cleanly mergeable, false otherwise
 
@@ -9370,11 +9370,11 @@ true if this change is cleanly mergeable, false otherwise
 
 commit_merged
 
-	
+
 
 optional
 
-	
+
 
 true if this change is already merged, false otherwise
 
@@ -9383,11 +9383,11 @@ true if this change is already merged, false otherwise
 
 content_merged
 
-	
+
 
 optional
 
-	
+
 
 true if the content of this change is already merged, false otherwise
 
@@ -9396,11 +9396,11 @@ true if the content of this change is already merged, false otherwise
 
 conflicts
 
-	
+
 
 optional
 
-	
+
 
 A list of paths with conflicts
 
@@ -9409,11 +9409,11 @@ A list of paths with conflicts
 
 mergeable_into
 
-	
+
 
 optional
 
-	
+
 
 A list of other branch names where this change could merge cleanly
 
@@ -9426,7 +9426,7 @@ Field Name		Description
 
 source
 
-		
+
 
 The source to merge from, e.g. a complete or abbreviated commit SHA-1, a complete reference name, a short reference name under refs/heads, refs/tags, or refs/remotes namespace, etc.
 
@@ -9435,11 +9435,11 @@ The source to merge from, e.g. a complete or abbreviated commit SHA-1, a complet
 
 source_branch
 
-	
+
 
 optional
 
-	
+
 
 A branch from which source is reachable. If specified, source is checked for visibility and reachability against only this branch. This speeds up the operation, especially for large repos with many branches.
 
@@ -9448,11 +9448,11 @@ A branch from which source is reachable. If specified, source is checked for vis
 
 strategy
 
-	
+
 
 optional
 
-	
+
 
 The strategy of the merge, can be recursive, resolve, simple-two-way-in-core, ours or theirs, default will use project settings.
 
@@ -9461,11 +9461,11 @@ The strategy of the merge, can be recursive, resolve, simple-two-way-in-core, ou
 
 allow_conflicts
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, creating the merge succeeds also if there are conflicts.
 If there are conflicts the file contents of the created change contain git conflict markers to indicate the conflicts.
@@ -9482,11 +9482,11 @@ Field Name		Description
 
 subject
 
-	
+
 
 optional
 
-	
+
 
 The new subject for the change, if not specified, will reuse the current patch set’s subject
 
@@ -9495,11 +9495,11 @@ The new subject for the change, if not specified, will reuse the current patch s
 
 inherit_parent
 
-	
+
 
 optional, default to false
 
-	
+
 
 Use the current patch set’s first parent as the merge tip when set to true.
 
@@ -9508,11 +9508,11 @@ Use the current patch set’s first parent as the merge tip when set to true.
 
 base_change
 
-	
+
 
 optional
 
-	
+
 
 A {change-id} that identifies a change. When inherit_parent is false, the merge tip will be the current patch set of the base_change if it’s set. Otherwise, the current branch tip of the destination branch will be used.
 
@@ -9521,7 +9521,7 @@ A {change-id} that identifies a change. When inherit_parent is false, the merge 
 
 merge
 
-		
+
 
 The detail of the source commit for merge as a MergeInput entity.
 
@@ -9530,11 +9530,11 @@ The detail of the source commit for merge as a MergeInput entity.
 
 author
 
-	
+
 
 optional
 
-	
+
 
 The author of the commit to create. Must be an AccountInput entity with at least the name and email fields set. The caller needs "Forge Author" permission when using this field. This field does not affect the owner or the committer of the change, which will continue to use the identity of the caller.
 
@@ -9543,11 +9543,11 @@ The author of the commit to create. Must be an AccountInput entity with at least
 
 validation_options
 
-	
+
 
 optional
 
-	
+
 
 Map with key-value pairs that are forwarded as options to the commit validation listeners (e.g. can be used to skip certain validations). Which validation options are supported depends on the installed commit validation listeners. Gerrit core doesn’t support any validation options, but commit validation listeners that are implemented in plugins may. Please refer to the documentation of the installed plugins to learn whether they support validation options. Unknown validation options are silently ignored.
 
@@ -9560,7 +9560,7 @@ Field Name		Description
 
 destination_branch
 
-		
+
 
 Destination branch
 
@@ -9569,11 +9569,11 @@ Destination branch
 
 message
 
-	
+
 
 optional
 
-	
+
 
 A message to be posted in this change’s comments
 
@@ -9582,11 +9582,11 @@ A message to be posted in this change’s comments
 
 keep_all_votes
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 By default, only veto votes that are blocking the change from submission are moved to the destination branch. Using this option is only allowed for administrators, because it can affect the submission behaviour of the change (depending on the label access configuration and submissions rules).
 
@@ -9599,11 +9599,11 @@ Field Name		Description
 
 accounts
 
-	
+
 
 optional
 
-	
+
 
 A list of account IDs that identify the accounts that should be should be notified.
 
@@ -9616,11 +9616,11 @@ Field Name		Description
 
 branch_name
 
-	
+
 
 optional
 
-	
+
 
 Name of the target branch into which the parent commit is merged.
 
@@ -9629,11 +9629,11 @@ Name of the target branch into which the parent commit is merged.
 
 commit_id
 
-	
+
 
 optional
 
-	
+
 
 The commit SHA-1 of the parent commit, or null if the current commit is root.
 
@@ -9642,11 +9642,11 @@ The commit SHA-1 of the parent commit, or null if the current commit is root.
 
 is_merged_in_target_branch
 
-	
+
 
 optional, default to false
 
-	
+
 
 Set to true if the parent commit is merged into the target branch.
 
@@ -9655,11 +9655,11 @@ Set to true if the parent commit is merged into the target branch.
 
 change_id
 
-	
+
 
 optional
 
-	
+
 
 If the parent commit is a patch-set of another gerrit change, this field will hold the change ID of the parent change. Otherwise, will be null.
 
@@ -9668,11 +9668,11 @@ If the parent commit is a patch-set of another gerrit change, this field will ho
 
 change_number
 
-	
+
 
 optional
 
-	
+
 
 If the parent commit is a patch-set of another gerrit change, this field will hold the change number of the parent change. Otherwise, will be null.
 
@@ -9681,11 +9681,11 @@ If the parent commit is a patch-set of another gerrit change, this field will ho
 
 patch_set_number
 
-	
+
 
 optional
 
-	
+
 
 If the parent commit is a patch-set of another gerrit change, this field will hold the patch-set number of the parent change. Otherwise, will be null.
 
@@ -9694,11 +9694,11 @@ If the parent commit is a patch-set of another gerrit change, this field will ho
 
 change_status
 
-	
+
 
 optional
 
-	
+
 
 If the parent commit is a patch-set of another gerrit change, this field will hold the change status of the parent change. Otherwise, will be null.
 
@@ -9711,11 +9711,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 Message describing why the private flag was changed.
 
@@ -9728,7 +9728,7 @@ Field Name		Description
 
 message
 
-		
+
 
 Plaintext message describing the problem with the change.
 
@@ -9737,11 +9737,11 @@ Plaintext message describing the problem with the change.
 
 status
 
-	
+
 
 optional
 
-	
+
 
 The status of fixing the problem (FIXED, FIX_FAILED). Only set if a fix was attempted.
 
@@ -9750,11 +9750,11 @@ The status of fixing the problem (FIXED, FIX_FAILED). Only set if a fix was atte
 
 outcome
 
-	
+
 
 optional
 
-	
+
 
 If status is set, an additional plaintext message describing the outcome of the fix.
 
@@ -9767,11 +9767,11 @@ Field Name		Description
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the change edit is published.
 Allowed values are NONE and ALL.
@@ -9782,11 +9782,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -9799,7 +9799,7 @@ Field Name	Description
 
 is_pure_revert
 
-	
+
 
 Outcome of the check as boolean.
 
@@ -9812,7 +9812,7 @@ Field Name	Description
 
 certificate
 
-	
+
 
 Signed certificate payload and GPG signature block.
 
@@ -9821,7 +9821,7 @@ Signed certificate payload and GPG signature block.
 
 key
 
-	
+
 
 Information about the key that signed the push, along with any problems found while checking the signature or the key itself, as a GpgKeyInfo entity.
 
@@ -9834,7 +9834,7 @@ Field Name	Description
 
 start
 
-	
+
 
 First index.
 
@@ -9843,7 +9843,7 @@ First index.
 
 end
 
-	
+
 
 Last index.
 
@@ -9856,11 +9856,11 @@ Field Name		Description
 
 allow_conflicts
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, the rebase also succeeds if there are conflicts.
 If there are conflicts the file contents of the rebased patch set contain git conflict markers to indicate the conflicts.
@@ -9875,11 +9875,11 @@ Field Name		Description
 
 base
 
-	
+
 
 optional
 
-	
+
 
 The new parent revision. This can be a ref or a SHA-1 to a concrete patchset.
 Alternatively, a change number can be specified, in which case the current patch set is inferred.
@@ -9890,11 +9890,11 @@ Empty string is used for rebasing directly on top of the target branch, which ef
 
 strategy
 
-	
+
 
 optional
 
-	
+
 
 The strategy of the merge, can be recursive, resolve, simple-two-way-in-core, ours or theirs, default will use project settings.
 
@@ -9903,11 +9903,11 @@ The strategy of the merge, can be recursive, resolve, simple-two-way-in-core, ou
 
 allow_conflicts
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, the rebase also succeeds if there are conflicts.
 If there are conflicts the file contents of the rebased patch set contain git conflict markers to indicate the conflicts.
@@ -9920,11 +9920,11 @@ Cannot be combined with the on_behalf_of_uploader option.
 
 on_behalf_of_uploader
 
-	
+
 
 optional, defaults to false
 
-	
+
 
 If true, the rebase is done on behalf of the uploader.
 This means the uploader of the current patch set will also be the uploader of the rebased patch set. The calling user will be recorded as the real user.
@@ -9937,11 +9937,11 @@ If the caller is the uploader this flag is ignored and a normal rebase is done.
 
 committer_email
 
-	
+
 
 optional
 
-	
+
 
 Rebase is committed using this email address. Only the registered emails of the calling user or uploader (when on_behalf_of_uploader is true) are considered valid. This option is not supported when rebasing a chain.
 
@@ -9950,11 +9950,11 @@ Rebase is committed using this email address. Only the registered emails of the 
 
 validation_options
 
-	
+
 
 optional
 
-	
+
 
 Map with key-value pairs that are forwarded as options to the commit validation listeners (e.g. can be used to skip certain validations). Which validation options are supported depends on the installed commit validation listeners. Gerrit core doesn’t support any validation options, but commit validation listeners that are implemented in plugins may. Please refer to the documentation of the installed plugins to learn whether they support validation options. Unknown validation options are silently ignored.
 
@@ -9967,7 +9967,7 @@ Field Name		Description
 
 rebased_changes
 
-		
+
 
 List of the unsubmitted ancestors, as ChangeInfo entities. Includes both rebased changes, and previously up-to-date ancestors. The list is ordered by ancestry, where the oldest ancestor is the first.
 
@@ -9976,7 +9976,7 @@ List of the unsubmitted ancestors, as ChangeInfo entities. Includes both rebased
 
 contains_git_conflicts
 
-		
+
 
 Whether any of the rebased changes has conflicts due to rebasing.
 
@@ -9989,7 +9989,7 @@ Field Name		Description
 
 project
 
-		
+
 
 The project of the change or commit.
 
@@ -9998,11 +9998,11 @@ The project of the change or commit.
 
 change_id
 
-	
+
 
 optional
 
-	
+
 
 The Change-Id of the change.
 
@@ -10011,7 +10011,7 @@ The Change-Id of the change.
 
 commit
 
-		
+
 
 The commit as a CommitInfo entity.
 
@@ -10020,11 +10020,11 @@ The commit as a CommitInfo entity.
 
 _change_number
 
-	
+
 
 optional
 
-	
+
 
 The change number.
 
@@ -10033,11 +10033,11 @@ The change number.
 
 _revision_number
 
-	
+
 
 optional
 
-	
+
 
 The revision number.
 
@@ -10046,11 +10046,11 @@ The revision number.
 
 _current_revision_number
 
-	
+
 
 optional
 
-	
+
 
 The current revision number.
 
@@ -10059,11 +10059,11 @@ The current revision number.
 
 status
 
-	
+
 
 optional
 
-	
+
 
 The status of the change. The status of the change is one of (NEW, MERGED, ABANDONED).
 
@@ -10072,11 +10072,11 @@ The status of the change. The status of the change is one of (NEW, MERGED, ABAND
 
 submittable
 
-	
+
 
 optional
 
-	
+
 
 Boolean indicating whether the change is submittable.
 Only populated if requested.
@@ -10090,7 +10090,7 @@ Field Name	Description
 
 changes
 
-	
+
 
 A list of RelatedChangeAndCommitInfo entities describing the related changes. Sorted by git commit order, newest to oldest. Empty if there are no related changes.
 
@@ -10103,7 +10103,7 @@ Field Name		Description
 
 status
 
-		
+
 
 Status of the requirement. Can be either OK, NOT_READY or RULE_ERROR.
 
@@ -10112,7 +10112,7 @@ Status of the requirement. Can be either OK, NOT_READY or RULE_ERROR.
 
 fallback_text
 
-		
+
 
 A human readable reason
 
@@ -10121,7 +10121,7 @@ A human readable reason
 
 type
 
-		
+
 
 Alphanumerical (plus hyphens or underscores) string to identify what the requirement is and why it was triggered. Can be seen as a class: requirements sharing the same type were created for a similar reason, and the data structure will follow one set of rules.
 
@@ -10134,11 +10134,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 Message to be added as review comment to the change when restoring the change.
 
@@ -10151,11 +10151,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 Message to be added as review comment to the change when reverting the change.
 
@@ -10164,11 +10164,11 @@ Message to be added as review comment to the change when reverting the change.
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent for reverting the change.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -10179,11 +10179,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the revert as a map of recipient type to NotifyInfo entity.
 
@@ -10192,11 +10192,11 @@ Additional information about whom to notify about the revert as a map of recipie
 
 topic
 
-	
+
 
 optional
 
-	
+
 
 Name of the topic for the revert change. If not set, the default for Revert endpoint is the topic of the change being reverted, and the default for the RevertSubmission endpoint is revert-{submission_id}-{timestamp.now}. Topic can’t contain quotation marks.
 
@@ -10205,11 +10205,11 @@ Name of the topic for the revert change. If not set, the default for Revert endp
 
 work_in_progress
 
-	
+
 
 optional
 
-	
+
 
 When present, change is marked as Work In Progress. The notify input is used if it’s present, otherwise it will be overridden to NONE.
 Notifications for the reverted change will only sent once the result change is no longer WIP.
@@ -10220,11 +10220,11 @@ If not set, the default is false.
 
 validation_options
 
-	
+
 
 optional
 
-	
+
 
 Map with key-value pairs that are forwarded as options to the commit validation listeners (e.g. can be used to skip certain validations). Which validation options are supported depends on the installed commit validation listeners. Gerrit core doesn’t support any validation options, but commit validation listeners that are implemented in plugins may. Please refer to the documentation of the installed plugins to learn whether they support validation options. Unknown validation options are silently ignored.
 
@@ -10237,7 +10237,7 @@ Field Name	Description
 
 revert_changes
 
-	
+
 
 A list of ChangeInfo that describes the revert changes. Each entity in that list is a revert change that was created in that revert submission.
 
@@ -10250,7 +10250,7 @@ Field Name	Description
 
 labels
 
-	
+
 
 The labels of the review as a map that maps the label names to the voting values.
 
@@ -10263,7 +10263,7 @@ Field Name	Description
 
 updated
 
-	
+
 
 Timestamp of the update.
 
@@ -10272,7 +10272,7 @@ Timestamp of the update.
 
 updated_by
 
-	
+
 
 The account which modified state of the reviewer in question as AccountInfo entity.
 
@@ -10281,7 +10281,7 @@ The account which modified state of the reviewer in question as AccountInfo enti
 
 reviewer
 
-	
+
 
 The reviewer added or removed from the change as an AccountInfo entity. For reviewers by email the AccountInfo doesn’t contain an account ID but only the email and optionally a name.
 
@@ -10290,7 +10290,7 @@ The reviewer added or removed from the change as an AccountInfo entity. For revi
 
 state
 
-	
+
 
 The reviewer state, one of REVIEWER, CC or REMOVED.
 
@@ -10303,11 +10303,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 The message to be added as review comment.
 
@@ -10316,11 +10316,11 @@ The message to be added as review comment.
 
 tag
 
-	
+
 
 optional
 
-	
+
 
 Apply this tag to the review comment message, votes, and inline comments. Tags with an 'autogenerated:' prefix may be used by CI or other automated systems to distinguish them from human reviews. If another message was posted on a newer patchset, but with the same tag, then the older message will be hidden in the UI. Suffixes starting with ~ are not considered, so autogenerated:my-ci-system~trigger and autogenerated:my-ci-system~result will be considered being the same tag with regards to the hiding rule.
 
@@ -10329,11 +10329,11 @@ Apply this tag to the review comment message, votes, and inline comments. Tags w
 
 labels
 
-	
+
 
 optional
 
-	
+
 
 The votes that should be added to the revision as a map that maps the label names to the voting values.
 
@@ -10342,11 +10342,11 @@ The votes that should be added to the revision as a map that maps the label name
 
 comments
 
-	
+
 
 optional
 
-	
+
 
 The comments that should be added as a map that maps a file path to a list of CommentInput entities.
 
@@ -10355,11 +10355,11 @@ The comments that should be added as a map that maps a file path to a list of Co
 
 robot_comments
 
-	
+
 
 optional, deprecated
 
-	
+
 
 The robot comments that should be added as a map that maps a file path to a list of RobotCommentInput entities.
 
@@ -10368,11 +10368,11 @@ The robot comments that should be added as a map that maps a file path to a list
 
 drafts
 
-	
+
 
 optional
 
-	
+
 
 Draft handling that defines how draft comments are handled that are already in the database but that were not also described in this input.
 Allowed values are PUBLISH, PUBLISH_ALL_REVISIONS and KEEP. All values except PUBLISH_ALL_REVISIONS operate only on drafts for a single revision.
@@ -10384,11 +10384,11 @@ If not set, the default is KEEP. If on_behalf_of is set, then no other value bes
 
 draft_ids_to_publish
 
-	
+
 
 optional
 
-	
+
 
 List of draft IDs to be published. The draft IDs should belong to the current user and be valid. If drafts is set to PUBLISH, then draft IDs should contain drafts for the same revision that is requested for review. If drafts is set to KEEP, then draft_ids_to_publish will be ignored and no draft comments will be published.
 If not set, the default is to publish all drafts according to the drafts field.
@@ -10398,11 +10398,11 @@ If not set, the default is to publish all drafts according to the drafts field.
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the review is stored.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -10413,11 +10413,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -10426,11 +10426,11 @@ Additional information about whom to notify about the update as a map of recipie
 
 omit_duplicate_comments
 
-	
+
 
 optional
 
-	
+
 
 If true, comments with the same content at the same place will be omitted.
 
@@ -10439,11 +10439,11 @@ If true, comments with the same content at the same place will be omitted.
 
 on_behalf_of
 
-	
+
 
 optional
 
-	
+
 
 {account-id} the review should be posted on behalf of. To use this option the caller must have been granted labelAs-NAME permission for all keys of labels.
 
@@ -10452,11 +10452,11 @@ optional
 
 reviewers
 
-	
+
 
 optional
 
-	
+
 
 A list of ReviewerInput representing reviewers that should be added/removed to/from the change.
 
@@ -10465,11 +10465,11 @@ A list of ReviewerInput representing reviewers that should be added/removed to/f
 
 ready
 
-	
+
 
 optional
 
-	
+
 
 If true, and if the change is work in progress, then start review. It is an error for both ready and work_in_progress to be true.
 
@@ -10478,11 +10478,11 @@ If true, and if the change is work in progress, then start review. It is an erro
 
 work_in_progress
 
-	
+
 
 optional
 
-	
+
 
 If true, mark the change as work in progress. It is an error for both ready and work_in_progress to be true.
 
@@ -10491,11 +10491,11 @@ If true, mark the change as work in progress. It is an error for both ready and 
 
 add_to_attention_set
 
-	
+
 
 optional
 
-	
+
 
 list of AttentionSetInput entities to add to the attention set. Users that are not reviewers, ccs, owner, or uploader are silently ignored.
 
@@ -10504,11 +10504,11 @@ list of AttentionSetInput entities to add to the attention set. Users that are n
 
 remove_from_attention_set
 
-	
+
 
 optional
 
-	
+
 
 list of AttentionSetInput entities to remove from the attention set.
 
@@ -10517,11 +10517,11 @@ list of AttentionSetInput entities to remove from the attention set.
 
 ignore_automatic_attention_set_rules
 
-	
+
 
 optional
 
-	
+
 
 If set to true, ignore all automatic attention set rules described in the attention set. Updates in add_to_attention_set and remove_from_attention_set are not ignored.
 
@@ -10530,11 +10530,11 @@ If set to true, ignore all automatic attention set rules described in the attent
 
 response_format_options
 
-	
+
 
 optional
 
-	
+
 
 List of query options to format the response.
 
@@ -10547,11 +10547,11 @@ Field Name		Description
 
 labels
 
-	
+
 
 optional
 
-	
+
 
 Map of labels to values after the review was posted. Null if any reviewer additions were rejected.
 
@@ -10560,11 +10560,11 @@ Map of labels to values after the review was posted. Null if any reviewer additi
 
 reviewers
 
-	
+
 
 optional
 
-	
+
 
 Map of account or group identifier to ReviewerResult representing the outcome of adding/removing a reviewer. Absent if no reviewer additions were requested.
 
@@ -10573,11 +10573,11 @@ Map of account or group identifier to ReviewerResult representing the outcome of
 
 ready
 
-	
+
 
 optional
 
-	
+
 
 If true, the change was moved from WIP to ready for review as a result of this action. Not set if false.
 
@@ -10586,11 +10586,11 @@ If true, the change was moved from WIP to ready for review as a result of this a
 
 error
 
-	
+
 
 optional
 
-	
+
 
 Error message for non-200 responses.
 
@@ -10599,7 +10599,7 @@ Error message for non-200 responses.
 
 change_info
 
-		
+
 
 Post-update change information.
 
@@ -10614,7 +10614,7 @@ Field Name	Description
 
 approvals
 
-	
+
 
 The approvals of the reviewer as a map that maps the label names to the approval values (“-2”, “-1”, “0”, “+1”, “+2”).
 
@@ -10623,7 +10623,7 @@ The approvals of the reviewer as a map that maps the label names to the approval
 
 _account_id
 
-	
+
 
 This field is inherited from AccountInfo but is optional here if an unregistered reviewer was added by email. See add-reviewer for details.
 
@@ -10636,7 +10636,7 @@ Field Name		Description
 
 reviewer
 
-		
+
 
 The ID of one account that should be added/removed as reviewer or the ID of one internal group for which all members should be added as reviewers.
 If an ID identifies both an account and a group, only the account is added as reviewer to the change. External groups, such as LDAP groups, will be silently omitted from a set-review or add-reviewer call. A group can only be specified for adding reviewers, not for removing them.
@@ -10646,11 +10646,11 @@ If an ID identifies both an account and a group, only the account is added as re
 
 state
 
-	
+
 
 optional
 
-	
+
 
 Add reviewer in this state. Possible reviewer states are REVIEWER, CC and REMOVED. If not given, defaults to REVIEWER.
 
@@ -10659,11 +10659,11 @@ Add reviewer in this state. Possible reviewer states are REVIEWER, CC and REMOVE
 
 confirmed
 
-	
+
 
 optional
 
-	
+
 
 Whether adding the reviewer is confirmed.
 The Gerrit server may be configured to require a confirmation when adding a group as reviewer that has many members.
@@ -10673,11 +10673,11 @@ The Gerrit server may be configured to require a confirmation when adding a grou
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the reviewer is added.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -10688,11 +10688,11 @@ If not set, the default is ALL.
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -10705,7 +10705,7 @@ Field Name		Description
 
 input
 
-		
+
 
 Value of the reviewer field from ReviewerInput set while adding the reviewer.
 
@@ -10714,11 +10714,11 @@ Value of the reviewer field from ReviewerInput set while adding the reviewer.
 
 reviewers
 
-	
+
 
 optional
 
-	
+
 
 The newly added reviewers as a list of ReviewerInfo entities.
 
@@ -10727,11 +10727,11 @@ The newly added reviewers as a list of ReviewerInfo entities.
 
 ccs
 
-	
+
 
 optional
 
-	
+
 
 The newly CCed accounts as a list of AccountInfo entities. This field will only appear if the requested state for the reviewer was CC.
 
@@ -10740,11 +10740,11 @@ The newly CCed accounts as a list of AccountInfo entities. This field will only 
 
 removed
 
-	
+
 
 optional
 
-	
+
 
 The newly removed accounts as a list of AccountInfo entities. This field will only appear if the requested state for the reviewer was REMOVED.
 
@@ -10753,11 +10753,11 @@ The newly removed accounts as a list of AccountInfo entities. This field will on
 
 error
 
-	
+
 
 optional
 
-	
+
 
 Error message explaining why the reviewer could not be added.
 If a group was specified in the input and an error is returned, it means that none of the members were added as reviewer.
@@ -10767,11 +10767,11 @@ If a group was specified in the input and an error is returned, it means that no
 
 confirm
 
-	
+
 
 false if not set
 
-	
+
 
 Whether adding the reviewer requires confirmation.
 
@@ -10784,7 +10784,7 @@ Field Name		Description
 
 kind
 
-		
+
 
 The change kind. Valid values are REWORK, TRIVIAL_REBASE, TRIVIAL_REBASE_WITH_MESSAGE_UPDATE, MERGE_FIRST_PARENT_UPDATE, NO_CODE_CHANGE, and NO_CHANGE.
 
@@ -10793,7 +10793,7 @@ The change kind. Valid values are REWORK, TRIVIAL_REBASE, TRIVIAL_REBASE_WITH_ME
 
 _number
 
-		
+
 
 The patch set number, or edit if the patch set is an edit.
 
@@ -10802,7 +10802,7 @@ The patch set number, or edit if the patch set is an edit.
 
 created
 
-		
+
 
 The timestamp of when the patch set was created.
 
@@ -10811,7 +10811,7 @@ The timestamp of when the patch set was created.
 
 uploader
 
-		
+
 
 The uploader of the patch set as an AccountInfo entity.
 
@@ -10820,11 +10820,11 @@ The uploader of the patch set as an AccountInfo entity.
 
 real_uploader
 
-	
+
 
 optional
 
-	
+
 
 The real uploader of the patch set as an AccountInfo entity.
 Only set if the upload was done on behalf of another user.
@@ -10834,7 +10834,7 @@ Only set if the upload was done on behalf of another user.
 
 ref
 
-		
+
 
 The Git reference for the patch set.
 
@@ -10843,7 +10843,7 @@ The Git reference for the patch set.
 
 fetch
 
-		
+
 
 Information about how to fetch this patch set. The fetch information is provided as a map that maps the protocol name (“git”, “http”, “ssh”) to FetchInfo entities. This information is only included if a plugin implementing the download commands interface is installed.
 
@@ -10852,11 +10852,11 @@ Information about how to fetch this patch set. The fetch information is provided
 
 commit
 
-	
+
 
 optional
 
-	
+
 
 The commit of the patch set as CommitInfo entity.
 
@@ -10865,11 +10865,11 @@ The commit of the patch set as CommitInfo entity.
 
 parents_data
 
-	
+
 
 optional
 
-	
+
 
 The parent commits of this patch-set commit as a list of ParentInfo entities. In each parent, we include the target branch name if the parent is a merged commit in the target branch. Otherwise, we include the change and patch-set numbers of the parent change.
 Only set if the PARENTS option is set.
@@ -10879,11 +10879,11 @@ Only set if the PARENTS option is set.
 
 branch
 
-	
+
 
 optional
 
-	
+
 
 The name of the target branch that this revision is set to be merged into.
 Note that if the change is moved with the Move Change endpoint, this field can be different for different patchsets. For example, if the change is moved and a new patchset is uploaded afterwards, the RevisionInfo of the previous patchset will contain the old branch, but the newer patchset will contain the new branch.
@@ -10893,11 +10893,11 @@ Note that if the change is moved with the Move Change endpoint, this field can b
 
 files
 
-	
+
 
 optional
 
-	
+
 
 The files of the patch set as a map that maps the file names to FileInfo entities. Only set if CURRENT_FILES or ALL_FILES option is requested.
 
@@ -10906,11 +10906,11 @@ The files of the patch set as a map that maps the file names to FileInfo entitie
 
 actions
 
-	
+
 
 optional
 
-	
+
 
 Actions the caller might be able to perform on this revision. The information is a map of view name to ActionInfo entities.
 
@@ -10919,11 +10919,11 @@ Actions the caller might be able to perform on this revision. The information is
 
 reviewed
 
-	
+
 
 optional
 
-	
+
 
 Indicates whether the caller is authenticated and has commented on the current revision. Only set if REVIEWED option is requested.
 
@@ -10932,11 +10932,11 @@ Indicates whether the caller is authenticated and has commented on the current r
 
 commit_with_footers
 
-	
+
 
 optional
 
-	
+
 
 If the COMMIT_FOOTERS option is requested and this is the current patch set, contains the full commit message with Gerrit-specific commit footers, as if this revision were submitted using the Cherry Pick submit type.
 
@@ -10945,11 +10945,11 @@ If the COMMIT_FOOTERS option is requested and this is the current patch set, con
 
 push_certificate
 
-	
+
 
 optional
 
-	
+
 
 If the PUSH_CERTIFICATES option is requested, contains the push certificate provided by the user when uploading this patch set as a PushCertificateInfo entity. This field is always set if the option is requested; if no push certificate was provided, it is set to an empty object.
 
@@ -10958,11 +10958,11 @@ If the PUSH_CERTIFICATES option is requested, contains the push certificate prov
 
 description
 
-	
+
 
 optional
 
-	
+
 
 The description of this patchset, as displayed in the patchset selector menu. May be null if no description is set.
 
@@ -10971,11 +10971,11 @@ The description of this patchset, as displayed in the patchset selector menu. Ma
 
 conflicts
 
-	
+
 
 optional
 
-	
+
 
 Information about conflicts in this revision as a ConflictsInfo entity.
 Only set for revisions that were created by Gerrit as a result of performing a Git merge (merge commits that were created by the Create Change and the Create Merge Patch Set For Change REST endpoints and revisions created by the Cherry Pick Revision, Cherry Pick Commit, Rebase Change or Rebase Chain REST endpoints).
@@ -10992,7 +10992,7 @@ Field Name		Description
 
 robot_id
 
-		
+
 
 The ID of the robot that generated this comment.
 
@@ -11001,7 +11001,7 @@ The ID of the robot that generated this comment.
 
 robot_run_id
 
-		
+
 
 An ID of the run of the robot.
 
@@ -11010,11 +11010,11 @@ An ID of the run of the robot.
 
 url
 
-	
+
 
 optional
 
-	
+
 
 URL to more information.
 
@@ -11023,11 +11023,11 @@ URL to more information.
 
 properties
 
-	
+
 
 optional
 
-	
+
 
 Robot specific properties as map that maps arbitrary keys to values.
 
@@ -11040,7 +11040,7 @@ Field Name		Description
 
 path
 
-		
+
 
 The file path for which the inline comment should be added.
 
@@ -11049,11 +11049,11 @@ The file path for which the inline comment should be added.
 
 side
 
-	
+
 
 optional
 
-	
+
 
 The side on which the comment should be added.
 Allowed values are REVISION and PARENT.
@@ -11064,11 +11064,11 @@ If not set, the default is REVISION.
 
 line
 
-	
+
 
 optional
 
-	
+
 
 The number of the line for which the comment should be added.
 0 if it is a file comment.
@@ -11080,11 +11080,11 @@ If range is set, this value is ignored in favor of the end_line of the range.
 
 range
 
-	
+
 
 optional
 
-	
+
 
 The range of the comment as a CommentRange entity.
 
@@ -11093,11 +11093,11 @@ The range of the comment as a CommentRange entity.
 
 in_reply_to
 
-	
+
 
 optional
 
-	
+
 
 The URL encoded UUID of the comment to which this comment is a reply.
 
@@ -11106,11 +11106,11 @@ The URL encoded UUID of the comment to which this comment is a reply.
 
 message
 
-	
+
 
 optional
 
-	
+
 
 The comment message.
 
@@ -11119,7 +11119,7 @@ The comment message.
 
 robot_id
 
-		
+
 
 The ID of the robot that generated this comment.
 
@@ -11128,7 +11128,7 @@ The ID of the robot that generated this comment.
 
 robot_run_id
 
-		
+
 
 An ID of the run of the robot.
 
@@ -11137,11 +11137,11 @@ An ID of the run of the robot.
 
 url
 
-	
+
 
 optional
 
-	
+
 
 URL to more information.
 
@@ -11150,11 +11150,11 @@ URL to more information.
 
 properties
 
-	
+
 
 optional
 
-	
+
 
 Robot specific properties as map that maps arbitrary keys to values.
 
@@ -11167,7 +11167,7 @@ Field Name		Description
 
 rule
 
-		
+
 
 Prolog code to execute instead of the code in refs/meta/config.
 
@@ -11176,11 +11176,11 @@ Prolog code to execute instead of the code in refs/meta/config.
 
 filters
 
-	
+
 
 RUN if not set
 
-	
+
 
 When RUN filter rules in the parent projects are called to post-process the results of the project specific rule. This behavior matches how the rule will execute if installed.
 If SKIP the parent filters are not called, allowing the test to return results from the input rule.
@@ -11194,11 +11194,11 @@ Field Name		Description
 
 on_behalf_of
 
-	
+
 
 optional
 
-	
+
 
 If set, submit the change on behalf of the given user. The value may take any format accepted by the accounts REST API. Using this option requires Submit (On Behalf Of) permission on the branch.
 
@@ -11207,11 +11207,11 @@ If set, submit the change on behalf of the given user. The value may take any fo
 
 notify
 
-	
+
 
 optional
 
-	
+
 
 Notify handling that defines to whom email notifications should be sent after the change is submitted.
 Allowed values are NONE, OWNER, OWNER_REVIEWERS and ALL.
@@ -11222,11 +11222,11 @@ If not set, the default is ALL.+ Ignored if a post approval diff is present (i.e
 
 notify_details
 
-	
+
 
 optional
 
-	
+
 
 Additional information about whom to notify about the update as a map of recipient type to NotifyInfo entity.
 
@@ -11239,7 +11239,7 @@ Field Name		Description
 
 status
 
-		
+
 
 OK, the change can be submitted.
 NOT_READY, additional labels are required before submit.
@@ -11251,11 +11251,11 @@ RULE_ERROR, rule code failed with an error.
 
 ok
 
-	
+
 
 optional
 
-	
+
 
 Map of labels that are approved; an AccountInfo identifies the voter chosen by the rule.
 
@@ -11264,11 +11264,11 @@ Map of labels that are approved; an AccountInfo identifies the voter chosen by t
 
 reject
 
-	
+
 
 optional
 
-	
+
 
 Map of labels that are preventing submit; AccountInfo identifies voter.
 
@@ -11277,11 +11277,11 @@ Map of labels that are preventing submit; AccountInfo identifies voter.
 
 need
 
-	
+
 
 optional
 
-	
+
 
 Map of labels that need to be given to submit. The value is currently an empty object.
 
@@ -11290,11 +11290,11 @@ Map of labels that need to be given to submit. The value is currently an empty o
 
 may
 
-	
+
 
 optional
 
-	
+
 
 Map of labels that can be used, but do not affect submit. AccountInfo identifies voter, if the label has been applied.
 
@@ -11303,11 +11303,11 @@ Map of labels that can be used, but do not affect submit. AccountInfo identifies
 
 impossible
 
-	
+
 
 optional
 
-	
+
 
 Map of labels that should have been in need but cannot be used by any user because of access restrictions. The value is currently an empty object.
 
@@ -11316,11 +11316,11 @@ Map of labels that should have been in need but cannot be used by any user becau
 
 error_message
 
-	
+
 
 optional
 
-	
+
 
 When status is RULE_ERROR this message provides some text describing the failure of the rule predicate.
 
@@ -11333,7 +11333,7 @@ Field Name		Description
 
 rule_name
 
-		
+
 
 The name of the submit rule that created this submit record. The submit rule is specified in the form of "$plugin~$rule" where $plugin is the plugin name and $rule is the name of the class that implemented the submit rule.
 
@@ -11342,7 +11342,7 @@ The name of the submit rule that created this submit record. The submit rule is 
 
 status
 
-		
+
 
 OK, the change can be submitted.
 NOT_READY, additional labels are required before submit.
@@ -11355,11 +11355,11 @@ RULE_ERROR, rule code failed with an error.
 
 labels
 
-	
+
 
 optional
 
-	
+
 
 A list of labels, each containing the following fields.
 * label: the label name.
@@ -11371,11 +11371,11 @@ A list of labels, each containing the following fields.
 
 requirements
 
-	
+
 
 optional
 
-	
+
 
 List of the requirements to be met before this change can be submitted.
 
@@ -11384,11 +11384,11 @@ List of the requirements to be met before this change can be submitted.
 
 error_message
 
-	
+
 
 optional
 
-	
+
 
 When status is RULE_ERROR this message provides some text describing the failure of the rule predicate.
 
@@ -11401,11 +11401,11 @@ Field Name		Description
 
 expression
 
-	
+
 
 optional
 
-	
+
 
 The submit requirement expression as a string, for example branch:refs/heads/foo and label:verified=+1.
 
@@ -11414,7 +11414,7 @@ The submit requirement expression as a string, for example branch:refs/heads/foo
 
 fulfilled
 
-		
+
 
 True if the submit requirement is fulfilled for the change.
 
@@ -11423,7 +11423,7 @@ True if the submit requirement is fulfilled for the change.
 
 status
 
-		
+
 
 A string containing the status of evaluating the expression which can be one of the following:
 * PASS - expression was evaluated and result is true.
@@ -11436,11 +11436,11 @@ A string containing the status of evaluating the expression which can be one of 
 
 passing_atoms
 
-	
+
 
 optional
 
-	
+
 
 A list of passing atoms as strings. For the above expression, passing_atoms can contain ["branch:refs/heads/foo"] if the branch predicate is fulfilled for the change.
 
@@ -11449,11 +11449,11 @@ A list of passing atoms as strings. For the above expression, passing_atoms can 
 
 failing_atoms
 
-	
+
 
 optional
 
-	
+
 
 A list of failing atoms. This is similar to passing_atoms except that it contains the list of predicates that are not fulfilled for the change.
 
@@ -11462,11 +11462,11 @@ A list of failing atoms. This is similar to passing_atoms except that it contain
 
 atom_explanations
 
-	
+
 
 optional
 
-	
+
 
 A map of atoms (as strings) to strings explaining the result. This field only contains atoms for which the explanation is available.
 
@@ -11475,11 +11475,11 @@ A map of atoms (as strings) to strings explaining the result. This field only co
 
 error_message
 
-	
+
 
 optional
 
-	
+
 
 If the submit requirement fails during evaluation, this string will contain an error message describing why it failed.
 
@@ -11492,7 +11492,7 @@ Field Name		Description
 
 name
 
-		
+
 
 The submit requirement name.
 
@@ -11501,11 +11501,11 @@ The submit requirement name.
 
 description
 
-	
+
 
 optional
 
-	
+
 
 Description of the submit requirement.
 
@@ -11514,11 +11514,11 @@ Description of the submit requirement.
 
 applicability_expression
 
-	
+
 
 optional
 
-	
+
 
 Query expression that can be evaluated on any change. If evaluated to true on a change, the submit requirement is then applicable for this change. If not specified, the submit requirement is applicable for all changes.
 
@@ -11527,7 +11527,7 @@ Query expression that can be evaluated on any change. If evaluated to true on a 
 
 submittability_expression
 
-		
+
 
 Query expression that can be evaluated on any change. If evaluated to true on a change, the submit requirement is fulfilled and not blocking change submission.
 
@@ -11536,11 +11536,11 @@ Query expression that can be evaluated on any change. If evaluated to true on a 
 
 override_expression
 
-	
+
 
 optional
 
-	
+
 
 Query expression that can be evaluated on any change. If evaluated to true on a change, the submit requirement is overridden and not blocking change submission.
 
@@ -11549,11 +11549,11 @@ Query expression that can be evaluated on any change. If evaluated to true on a 
 
 allow_override_in_child_projects
 
-	
+
 
 optional
 
-	
+
 
 Whether this submit requirement can be overridden in child projects. Default is true.
 
@@ -11566,7 +11566,7 @@ Field Name		Description
 
 name
 
-		
+
 
 The submit requirement name.
 
@@ -11575,11 +11575,11 @@ The submit requirement name.
 
 description
 
-	
+
 
 optional
 
-	
+
 
 Description of the submit requirement.
 
@@ -11588,7 +11588,7 @@ Description of the submit requirement.
 
 status
 
-		
+
 
 Status describing the result of evaluating the submit requirement. The status is one of (SATISFIED, UNSATISFIED, OVERRIDDEN, NOT_APPLICABLE, ERROR, FORCED).
 
@@ -11597,7 +11597,7 @@ Status describing the result of evaluating the submit requirement. The status is
 
 is_legacy
 
-		
+
 
 If true, this submit requirement result was created from a legacy SubmitRecord. Otherwise, it was created by evaluating a submit requirement.
 
@@ -11606,11 +11606,11 @@ If true, this submit requirement result was created from a legacy SubmitRecord. 
 
 applicability_expression_result
 
-	
+
 
 optional
 
-	
+
 
 A SubmitRequirementExpressionInfo containing the result of evaluating the applicability expression. Not set if the submit requirement did not define an applicability expression. Note that fields expression, passing_atoms and failing_atoms are always omitted for the applicability_expression_result.
 
@@ -11619,7 +11619,7 @@ A SubmitRequirementExpressionInfo containing the result of evaluating the applic
 
 submittability_expression_result
 
-		
+
 
 A SubmitRequirementExpressionInfo containing the result of evaluating the submittability expression.
 If the submit requirement does not apply, the status field of the result will be set to NOT_EVALUATED.
@@ -11629,11 +11629,11 @@ If the submit requirement does not apply, the status field of the result will be
 
 override_expression_result
 
-	
+
 
 optional
 
-	
+
 
 A SubmitRequirementExpressionInfo containing the result of evaluating the override expression.
 Not set if the submit requirement did not define an override expression. If the submit requirement does not apply, the status field of the result will be set to NOT_EVALUATED.
@@ -11647,7 +11647,7 @@ Field Name	Description
 
 changes
 
-	
+
 
 A list of ChangeInfo entities representing the changes to be submitted together.
 
@@ -11656,7 +11656,7 @@ A list of ChangeInfo entities representing the changes to be submitted together.
 
 non_visible_changes
 
-	
+
 
 The number of changes to be submitted together that the current user cannot see. (This count includes changes that are visible to the current user when their reason for being submitted together involves changes the user cannot see.)
 
@@ -11671,11 +11671,11 @@ Field Name		Description
 
 account
 
-	
+
 
 optional
 
-	
+
 
 An AccountInfo entity, if the suggestion is an account.
 
@@ -11684,11 +11684,11 @@ An AccountInfo entity, if the suggestion is an account.
 
 group
 
-	
+
 
 optional
 
-	
+
 
 A GroupBaseInfo entity, if the suggestion is a group.
 
@@ -11697,7 +11697,7 @@ A GroupBaseInfo entity, if the suggestion is a group.
 
 count
 
-		
+
 
 The total number of accounts in the suggestion. This is 1 if account is present. If group is present, the total number of accounts that are members of the group is returned (this count includes members of nested groups).
 
@@ -11706,11 +11706,11 @@ The total number of accounts in the suggestion. This is 1 if account is present.
 
 confirm
 
-	
+
 
 optional
 
-	
+
 
 True if group is present and count is above the threshold where the confirmed flag must be passed to add the group as a reviewer.
 
@@ -11723,11 +11723,11 @@ Field Name		Description
 
 topic
 
-	
+
 
 optional
 
-	
+
 
 The topic.
 The topic will be deleted if not set. Topic can’t contain quotation marks.
@@ -11741,7 +11741,7 @@ Field Name	Description
 
 system
 
-	
+
 
 The name of the external tracking system.
 
@@ -11750,7 +11750,7 @@ The name of the external tracking system.
 
 id
 
-	
+
 
 The tracking id.
 
@@ -11763,7 +11763,7 @@ Field Name	Description
 
 min
 
-	
+
 
 The minimum voting value.
 
@@ -11772,7 +11772,7 @@ The minimum voting value.
 
 max
 
-	
+
 
 The maximum voting value.
 
@@ -11789,7 +11789,7 @@ Field Name		Description
 
 name
 
-		
+
 
 The text to be linkified.
 
@@ -11798,11 +11798,11 @@ The text to be linkified.
 
 tooltip
 
-	
+
 
 optional
 
-	
+
 
 Tooltip to show when hovering over the link. Using "Open in $NAME_OF_EXTERNAL_TOOL" is a good option here.
 
@@ -11811,7 +11811,7 @@ Tooltip to show when hovering over the link. Using "Open in $NAME_OF_EXTERNAL_TO
 
 url
 
-		
+
 
 The link URL.
 
@@ -11820,11 +11820,11 @@ The link URL.
 
 image_url
 
-	
+
 
 optional
 
-	
+
 
 URL to the icon of the link.
 
@@ -11837,7 +11837,7 @@ Field Name		Description
 
 name
 
-		
+
 
 The name of the validation option.
 
@@ -11846,7 +11846,7 @@ The name of the validation option.
 
 description
 
-		
+
 
 The description of the validation option.
 
@@ -11859,7 +11859,7 @@ Field Name		Description
 
 validation_options
 
-		
+
 
 The list of all possible validation options.
 
@@ -11872,11 +11872,11 @@ Field Name		Description
 
 message
 
-	
+
 
 optional
 
-	
+
 
 Message to be added as a review comment to the change being set WorkInProgress/ReadyForReview.
 

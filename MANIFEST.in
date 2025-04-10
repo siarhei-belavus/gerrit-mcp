@@ -7,4 +7,4 @@ include SERVER_SUMMARY.md
 include gerrit_api.txt
 
 recursive-exclude * __pycache__
-recursive-exclude * *.py[cod] 
+recursive-exclude * *.py[cod]

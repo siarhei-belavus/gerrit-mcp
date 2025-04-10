@@ -33,4 +33,4 @@ Code Review Guidelines
    - Follow SOLID principles
    - Use appropriate design patterns
    - Maintain backward compatibility
-   - Consider scalability and maintainability 
+   - Consider scalability and maintainability

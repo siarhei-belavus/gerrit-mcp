@@ -34,13 +34,13 @@ fi
 # Parse command line arguments (override .env file settings)
 while [[ $# -gt 0 ]]; do
   case $1 in
-    --username=*) USERNAME="${1#*=}"; shift ;; 
-    --api-token=*) API_TOKEN="${1#*=}"; shift ;; 
-    --gerrit-url=*) GERRIT_URL="${1#*=}"; shift ;; 
+    --username=*) USERNAME="${1#*=}"; shift ;;
+    --api-token=*) API_TOKEN="${1#*=}"; shift ;;
+    --gerrit-url=*) GERRIT_URL="${1#*=}"; shift ;;
     *)
       echo "Unknown option: $1"
       # Optionally, pass unknown args to the python script
-      # PYTHON_ARGS+=("$1") 
+      # PYTHON_ARGS+=("$1")
       shift
       ;;
   esac
@@ -62,4 +62,4 @@ export GERRIT_URL="$GERRIT_URL"
 # --- Run Server ---
 echo "Starting MCP server for Gerrit URL: $GERRIT_URL with user: $USERNAME"
 # Run the MCP server (no longer needs command line args for config)
-python "$SCRIPT_DIR/src/mmcp/server.py" 
+python "$SCRIPT_DIR/src/mmcp/server.py"

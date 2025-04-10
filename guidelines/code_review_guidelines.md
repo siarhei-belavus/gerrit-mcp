@@ -86,4 +86,4 @@ Before approving a PR, consider:
 - Is there technical debt being introduced?
 - Is documentation updated?
 - Are all tests passing?
-- Does the code follow team standards? 
+- Does the code follow team standards?

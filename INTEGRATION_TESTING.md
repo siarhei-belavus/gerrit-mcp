@@ -145,21 +145,21 @@ When adding new MCP tools to the server, follow these steps to add tests:
 def test_new_tool(self):
     """Test description."""
     logger.info("\nTesting new_tool...")
-    
+
     async def run_test():
         result = await self.__class__.client.call_tool(
             "gerrit_new_tool",
             {"param": "value"}
         )
-        
+
         self.assertIsNotNone(result)
         result_dict = json.loads(result[0].text)
         self.assertIsInstance(result_dict, dict)
         # Additional assertions...
-        
+
         logger.info("✅ new_tool test passed")
         return result_dict
-    
+
     return self._run_async_test(run_test())
 ```
 
@@ -169,4 +169,4 @@ To integrate these tests in a CI pipeline:
 
 1. Set up secret environment variables in your CI system
 2. Run the integration test as part of your build process
-3. Consider using the `SKIP_COMMENT_TESTS` and `SKIP_REVIEW_TESTS` flags to avoid affecting real Gerrit changes 
+3. Consider using the `SKIP_COMMENT_TESTS` and `SKIP_REVIEW_TESTS` flags to avoid affecting real Gerrit changes
