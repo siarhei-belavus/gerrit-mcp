@@ -62,6 +62,27 @@ GERRIT_USERNAME=your_username
 GERRIT_API_TOKEN=your_api_token
 ```
 
+## Project Structure
+
+The project follows a modular architecture:
+
+```
+src/
+├── gerrit/             # Gerrit API client
+│   ├── api.py          # API request functions
+│   ├── auth.py         # Authentication utilities
+│   └── models.py       # Data models
+├── mcp/                # MCP server implementation
+│   ├── server.py       # Server setup
+│   └── tools/          # MCP tool implementations
+│       ├── commit_tools.py    # Commit-related tools
+│       ├── file_tools.py      # File-related tools
+│       └── review_tools.py    # Review and comment tools
+└── utils/              # Utility functions
+    ├── error_handling.py  # Error handling utilities
+    └── logging.py         # Logging utilities
+```
+
 ## Cursor IDE Integration
 
 To integrate this MCP server with Cursor IDE:
@@ -114,7 +135,15 @@ gerrit-ai-review
 
 Or if running from source:
 ```bash
-python src/server_direct.py
+python src/server.py
+```
+
+Command line options:
+```
+--host HOST           Host to bind the server to (default: 127.0.0.1)
+--port PORT           Port to bind the server to (default: 5678)
+--debug               Enable debug logging
+--log-file LOG_FILE   Path to log file (default: logs to stdout)
 ```
 
 2. In Cursor IDE:
