@@ -107,7 +107,7 @@ To integrate this MCP server with Cursor IDE:
 
 1. Install the package:
 ```bash
-pip install git+https://github.com/siarhei-belavus/gerrit-mcp.git
+pipx install git+https://github.com/siarhei-belavus/gerrit-mcp.git
 ```
 
 2. Configure the MCP server in Cursor by creating/editing `~/.cursor/mcp.json`:
@@ -116,7 +116,6 @@ pip install git+https://github.com/siarhei-belavus/gerrit-mcp.git
   "mcpServers": {
     "gerrit-mcp": {
       "command": "gerrit-mcp",
-      "workingDirectory": "path/to/working/directory",
       "env": {
         "GERRIT_URL": "your_gerrit_url",
         "GERRIT_USERNAME": "your_username",
@@ -136,7 +135,6 @@ If you prefer to use command-line arguments instead of environment variables:
   "mcpServers": {
     "gerrit-mcp": {
       "command": "gerrit-mcp --gerrit_url your_gerrit_url --username your_username --api_token your_api_token",
-      "workingDirectory": "path/to/working/directory",
       "env": {}
     }
   }
@@ -156,7 +154,6 @@ For development from source, use the full path to the script:
   "mcpServers": {
     "gerrit-mcp": {
       "command": "/absolute/path/to/gerrit-mcp/gerrit_mcp.sh",
-      "workingDirectory": "path/to/working/directory",
       "env": {}
     }
   }

@@ -4,16 +4,16 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="gerrit_ai_review",
+    name="gerrit-mcp",
     version="0.1.0",
     author="Siarhei Belavus",
     author_email="siarhei_belavus@epam.com",
     description="A Model Context Protocol (MCP) server implementation for AI-powered Gerrit code reviews",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/siarhei-belavus/gerrit_ai_review",
+    url="https://github.com/siarhei-belavus/gerrit-mcp",
     project_urls={
-        "Bug Tracker": "https://github.com/siarhei-belavus/gerrit_ai_review/issues",
+        "Bug Tracker": "https://github.com/siarhei-belavus/gerrit-mcp/issues",
     },
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -37,7 +37,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "gerrit-ai-review=server_direct:main"
+            "gerrit-mcp=server_direct:main"
         ]
     },
 )
