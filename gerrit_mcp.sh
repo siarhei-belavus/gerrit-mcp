@@ -62,4 +62,4 @@ export GERRIT_URL="$GERRIT_URL"
 # --- Run Server ---
 echo "Starting MCP server for Gerrit URL: $GERRIT_URL with user: $USERNAME"
 # Run the MCP server (no longer needs command line args for config)
-python "$SCRIPT_DIR/src/server_direct.py" 
+python "$SCRIPT_DIR/src/mmcp/server.py" 

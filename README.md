@@ -53,10 +53,26 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -e .
 ```
 
-## Configuration
+## Configuration Options
 
-Create a `.env` file with your Gerrit credentials:
+### Environment Variables
+
+The repository includes an `.env.template` file that you can copy and modify:
+```bash
+cp .env.template .env
 ```
+
+Then edit the `.env` file with your Gerrit credentials:
+```
+GERRIT_URL=your_gerrit_url
+GERRIT_USERNAME=your_username
+GERRIT_API_TOKEN=your_api_token
+```
+
+### Command-Line Arguments
+
+Alternatively, you can use command-line arguments when running the server:
+```bash
 GERRIT_URL=your_gerrit_url
 GERRIT_USERNAME=your_username
 GERRIT_API_TOKEN=your_api_token
@@ -98,6 +114,7 @@ pip install git+https://github.com/siarhei-belavus/gerrit_ai_review.git
   "mcpServers": {
     "gerrit-ai-review": {
       "command": "gerrit-ai-review",
+      "workingDirectory": "path/to/working/directory",
       "env": {
         "GERRIT_URL": "your_gerrit_url",
         "GERRIT_USERNAME": "your_username",
@@ -108,19 +125,37 @@ pip install git+https://github.com/siarhei-belavus/gerrit_ai_review.git
 }
 ```
 
+### Alternative Configuration with Command Arguments
+
+If you prefer to use command-line arguments instead of environment variables:
+
+```json
+{
+  "mcpServers": {
+    "gerrit-ai-review": {
+      "command": "gerrit-ai-review --gerrit_url your_gerrit_url --username your_username --api_token your_api_token",
+      "workingDirectory": "path/to/working/directory",
+      "env": {}
+    }
+  }
+}
+```
+
+Using environment variables is generally preferred for credentials since they:
+- Don't appear in process listings (like when running `ps aux`)
+- Aren't stored in command history
+- Are easier to manage with credential management systems
+
 You can also use project-specific configuration by placing the `mcp.json` file in your project's `.cursor` directory.
 
-Note: If you're running from source instead of installing via pip, use the full path to the script in your configuration:
+For development from source, use the full path to the script:
 ```json
 {
   "mcpServers": {
     "gerrit-ai-review": {
       "command": "/absolute/path/to/gerrit_ai_review/gerrit_mcp.sh",
-      "env": {
-        "GERRIT_URL": "your_gerrit_url",
-        "GERRIT_USERNAME": "your_username",
-        "GERRIT_API_TOKEN": "your_api_token"
-      }
+      "workingDirectory": "path/to/working/directory",
+      "env": {}
     }
   }
 }
@@ -144,6 +179,13 @@ Command line options:
 --port PORT           Port to bind the server to (default: 5678)
 --debug               Enable debug logging
 --log-file LOG_FILE   Path to log file (default: logs to stdout)
+
+# Authentication options (when not using environment variables)
+--gerrit_url URL      Gerrit server URL
+--username USERNAME   Gerrit username
+--api_token TOKEN     Gerrit API token or password
+
+For complete usage information, run: gerrit-ai-review --help
 ```
 
 2. In Cursor IDE:
