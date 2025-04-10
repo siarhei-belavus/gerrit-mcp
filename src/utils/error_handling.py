@@ -1,5 +1,5 @@
-"""Error handling utilities for MCP tools.
-"""
+"""Error handling utilities for MCP tools."""
+
 import json
 import logging
 import traceback

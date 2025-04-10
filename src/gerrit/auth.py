@@ -1,5 +1,5 @@
-"""Authentication utilities for the Gerrit API.
-"""
+"""Authentication utilities for the Gerrit API."""
+
 import asyncio
 import logging
 import os

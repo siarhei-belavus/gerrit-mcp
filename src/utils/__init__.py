@@ -1,5 +1,5 @@
-"""Utility functions for the MCP server.
-"""
+"""Utility functions for the MCP server."""
+
 from .error_handling import (
     format_error_response,
     is_error_response,

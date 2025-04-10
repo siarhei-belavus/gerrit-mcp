@@ -1,5 +1,5 @@
-"""Gerrit REST API client implementation.
-"""
+"""Gerrit REST API client implementation."""
+
 import asyncio
 import functools
 import json
@@ -20,12 +20,10 @@ T = TypeVar("T")
 
 
 class GerritAPIError(Exception):
-
     """Custom exception for Gerrit API errors."""
 
 
 class ResourceNotFoundError(GerritAPIError):
-
     """Custom exception for when a Gerrit resource is not found."""
 
 

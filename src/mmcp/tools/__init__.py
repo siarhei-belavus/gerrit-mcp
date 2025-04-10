@@ -1,5 +1,5 @@
-"""MCP tools for Gerrit operations.
-"""
+"""MCP tools for Gerrit operations."""
+
 from .commit_tools import (
     get_change_detail_tool,
     get_commit_info_tool,

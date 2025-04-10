@@ -1,12 +1,11 @@
-"""Data models and type definitions for the Gerrit API.
-"""
+"""Data models and type definitions for the Gerrit API."""
+
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Literal, Optional
 
 
 @dataclass
 class CommentRange:
-
     """Range for a Gerrit comment."""
 
     start_line: int
@@ -17,7 +16,6 @@ class CommentRange:
 
 @dataclass
 class CommentInput:
-
     """Input data for creating a Gerrit comment."""
 
     message: str
@@ -31,7 +29,6 @@ class CommentInput:
 
 @dataclass
 class ReviewInput:
-
     """Input data for submitting a Gerrit review."""
 
     message: Optional[str] = None
@@ -42,7 +39,6 @@ class ReviewInput:
 
 @dataclass
 class Change:
-
     """Gerrit change information."""
 
     id: str
@@ -63,7 +59,6 @@ class Change:
 
 @dataclass
 class FileInfo:
-
     """Information about a file in a Gerrit change."""
 
     status: str
@@ -76,7 +71,6 @@ class FileInfo:
 
 @dataclass
 class LineChange:
-
     """Represents a changed line in a file diff."""
 
     type: Literal["added", "removed", "common"]
@@ -86,7 +80,6 @@ class LineChange:
 
 @dataclass
 class FileDiff:
-
     """Represents a diff for a specific file."""
 
     file_path: str

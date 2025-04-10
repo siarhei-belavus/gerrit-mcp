@@ -6,6 +6,7 @@ This test starts the MCP server as a subprocess and tests all MCP tools.
 Usage:
     python integration_test.py
 """
+
 import asyncio
 import json
 import logging
@@ -39,7 +40,6 @@ ASYNC_TIMEOUT = 30
 
 
 class TestMCPServer(unittest.TestCase):
-
     """Integration tests for the Gerrit MCP server."""
 
     @classmethod

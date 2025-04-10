@@ -1,5 +1,5 @@
-"""Gerrit API client package.
-"""
+"""Gerrit API client package."""
+
 from .api import (
     GerritAPIError,
     ResourceNotFoundError,

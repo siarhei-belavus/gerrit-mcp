@@ -1,5 +1,5 @@
-"""Logging utilities for MCP tools.
-"""
+"""Logging utilities for MCP tools."""
+
 import logging
 import os
 import sys

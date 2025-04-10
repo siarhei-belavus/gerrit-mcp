@@ -1,5 +1,5 @@
-"""MCP tools for Gerrit file-related operations.
-"""
+"""MCP tools for Gerrit file-related operations."""
+
 import logging
 from typing import Any, Dict
 

@@ -1,5 +1,5 @@
-"""MCP tools for Gerrit review and comment operations.
-"""
+"""MCP tools for Gerrit review and comment operations."""
+
 import logging
 from typing import Any, Dict, Optional
 
