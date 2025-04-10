@@ -344,6 +344,9 @@ def comment_issues_prompt() -> list[base.Message]:
     ]
 
 
+def main():
+    app.run()
+
 # Add run capability if executed directly
 if __name__ == "__main__":
-    app.run() 
+    main() 
