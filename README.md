@@ -33,7 +33,7 @@ A Model Context Protocol (MCP) server implementation that integrates Gerrit code
 You can install this package directly from GitHub using pip:
 
 ```bash
-pip install git+https://github.com/siarhei-belavus/gerrit-mcp.git
+pipx install git+https://github.com/siarhei-belavus/gerrit-mcp.git
 ```
 
 Or, for development:
