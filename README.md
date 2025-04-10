@@ -169,7 +169,7 @@ gerrit-mcp
 
 Or if running from source:
 ```bash
-python src/server.py
+python src/mmcp/server.py
 ```
 
 Command line options:
