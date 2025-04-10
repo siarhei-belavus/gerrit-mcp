@@ -1,3 +1,2 @@
+"""MCP server implementation for Gerrit code reviews.
 """
-MCP server implementation for Gerrit code reviews.
-""" 

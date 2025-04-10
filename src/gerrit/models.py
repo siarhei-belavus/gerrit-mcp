@@ -1,13 +1,14 @@
-"""
-Data models and type definitions for the Gerrit API.
+"""Data models and type definitions for the Gerrit API.
 """
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Any, Union, Literal
+from typing import Any, Dict, List, Literal, Optional
 
 
 @dataclass
 class CommentRange:
+
     """Range for a Gerrit comment."""
+
     start_line: int
     start_character: int
     end_line: int
@@ -16,7 +17,9 @@ class CommentRange:
 
 @dataclass
 class CommentInput:
+
     """Input data for creating a Gerrit comment."""
+
     message: str
     path: str
     line: Optional[int] = None
@@ -28,7 +31,9 @@ class CommentInput:
 
 @dataclass
 class ReviewInput:
+
     """Input data for submitting a Gerrit review."""
+
     message: Optional[str] = None
     labels: Optional[Dict[str, int]] = None
     comments: Optional[Dict[str, List[CommentInput]]] = None
@@ -37,7 +42,9 @@ class ReviewInput:
 
 @dataclass
 class Change:
+
     """Gerrit change information."""
+
     id: str
     project: str
     branch: str
@@ -56,7 +63,9 @@ class Change:
 
 @dataclass
 class FileInfo:
+
     """Information about a file in a Gerrit change."""
+
     status: str
     lines_inserted: Optional[int] = None
     lines_deleted: Optional[int] = None
@@ -67,7 +76,9 @@ class FileInfo:
 
 @dataclass
 class LineChange:
+
     """Represents a changed line in a file diff."""
+
     type: Literal["added", "removed", "common"]
     line_number: int
     content: str
@@ -75,9 +86,11 @@ class LineChange:
 
 @dataclass
 class FileDiff:
+
     """Represents a diff for a specific file."""
+
     file_path: str
     old_path: Optional[str] = None
     line_changes: List[LineChange] = field(default_factory=list)
     is_binary: bool = False
-    content_type: Optional[str] = None 
+    content_type: Optional[str] = None

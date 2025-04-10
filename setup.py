@@ -1,6 +1,6 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
-with open("README.md", "r", encoding="utf-8") as fh:
+with open("README.md", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
@@ -33,11 +33,11 @@ setup(
     install_requires=[
         "aiohttp==3.9.3",
         "python-dotenv==1.0.1",
-        "mcp-sdk==0.1.0"
+        "mcp-sdk==0.1.0",
     ],
     entry_points={
         "console_scripts": [
-            "gerrit-mcp=mmcp.server:main"
-        ]
+            "gerrit-mcp=mmcp.server:main",
+        ],
     },
 )
