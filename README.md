@@ -198,6 +198,39 @@ Example prompts:
 - "Create draft comments for the problematic areas"
 - "Submit the review with appropriate labels"
 
+### Example Conversation
+
+Here's how a typical conversation might look in Cursor:
+
+```
+You: Review this Gerrit commit https://gerrit.example.com/c/project/+/12345
+Agent: I'll review this Gerrit commit for you.
+
+[Agent is using Gerrit MCP tools...]
+
+Agent: I've completed my review of the commit. Here are the issues I found:
+
+1. In file.py:
+   - Line 24: This loop has O(n²) complexity which could be optimized
+   - Line 45: Unused variable 'result'
+
+2. In another_file.js:
+   - Line 12: Missing error handling for the async operation
+
+Would you like me to create draft comments for these issues in Gerrit?
+
+You: Yes, please create the comments
+
+Agent: Creating draft comments...
+Comments have been created in Gerrit for the issues found.
+
+Would you like me to apply a Code-Review label to this change?
+
+You: Apply -1 since there are issues that need to be fixed
+
+Agent: Applied Code-Review: -1 to the change.
+```
+
 ## Development
 
 ### Prerequisites
