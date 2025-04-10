@@ -29,7 +29,7 @@ setup(
     ],
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     install_requires=[
         "aiohttp==3.9.3",
         "python-dotenv==1.0.1",
