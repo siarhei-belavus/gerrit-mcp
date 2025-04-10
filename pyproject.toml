@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gerrit-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Model Context Protocol (MCP) server implementation for AI-powered Gerrit code reviews"
 readme = "README.md"
 authors = [
@@ -35,7 +35,7 @@ Homepage = "https://github.com/siarhei-belavus/gerrit-mcp"
 "Bug Tracker" = "https://github.com/siarhei-belavus/gerrit-mcp/issues"
 
 [project.scripts]
-gerrit-mcp = "server_direct:main"
+gerrit-mcp = "src.mmcp.server.py"
 
 [tool.setuptools.packages.find]
 where = ["src"] 
