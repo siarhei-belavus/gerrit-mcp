@@ -37,7 +37,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "gerrit-mcp=src.mmcp.server:main"
+            "gerrit-mcp=mmcp.server:main"
         ]
     },
 )

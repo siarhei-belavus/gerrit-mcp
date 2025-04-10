@@ -35,7 +35,7 @@ Homepage = "https://github.com/siarhei-belavus/gerrit-mcp"
 "Bug Tracker" = "https://github.com/siarhei-belavus/gerrit-mcp/issues"
 
 [project.scripts]
-gerrit-mcp = "src.mmcp.server:main"
+gerrit-mcp = "mmcp.server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"] 
